@@ -1,0 +1,626 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+
+.first-page-container {
+    background: linear-gradient(to top, rgba(34, 32, 41, .2), rgba(34, 32, 41, .5)),
+    url(supercar.jpg) center no-repeat;    
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: 100% 35%;
+    display: flex;
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+.sidebar-container {
+    background: linear-gradient(to top, rgba(34, 32, 41, .2), rgba(34, 32, 41, .2)),
+    url(texture1.jpg) center no-repeat;    
+    width: 8rem;
+    height: 100%;
+    background-size: cover;
+    background-position: 100% 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 100%;
+    border: 2px solid aqua;
+    box-sizing: border-box;
+    background: #000;
+    justify-self: flex-end;
+    z-index: 10;
+}
+
+.container {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* position: fixed; */
+    justify-content: flex-end;
+}
+
+.menu-icon {
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.line {
+    height: .2rem;
+    width: 2.5rem;
+    background-color: #fff;
+    margin-bottom: .6rem;
+}
+
+.line-1, .line-3 {
+    width: 1.8rem;
+    transition: all .4s;
+}
+
+.menu-icon:hover .line {
+    width: 2.5rem;
+}
+
+.social-icons-list {
+    list-style: none;
+    padding: 0; /*without this, the icons would be moved to the right side*/
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-link {
+    font-size: 2.3rem;
+    color: #fff;
+    transition: color .5s;
+}
+
+.social-link:hover {
+    color: aqua;
+}
+
+.year {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Navigation */
+.navigation {
+    position: absolute; /*This removes the space that was created above the sidebar*/
+    /* right: -37rem; */
+    margin-right: 8rem;
+    width: 37rem;
+    height: 100%;
+    background: linear-gradient(to top, rgba(34, 32, 41, .1), rgba(34, 32, 41, .1)),
+     url(texture2.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    transition: all .4s;
+    border: 1px solid aqua;
+    background-color: #fff;
+    opacity: 0%;
+    /* opacity: 85%; */
+}
+
+
+.navigation-heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    color: #fff;
+    text-align: center; /*when width is changed to 30rem below, heading is no longer centered
+    so use this to center it again */
+    background-color: #000;
+    padding: .5rem;
+    width: 25rem;
+    margin-left: 4rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    opacity: 80%;
+}
+
+.navigation-search {
+    position: relative; /*This is done so that the button element can be moved relative
+    to its parent instead of the body*/
+}
+
+.navigation-search-input {
+    width: 30rem;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, .9);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.6rem;
+    color: #000;
+    letter-spacing: .1rem;
+    outline: none; /*This gets rid of the blue outline that appears when you click in
+    the input search bar*/
+    border: .1rem solid #555;
+    border-radius: 10rem;
+    transition: background-color .3s;
+}
+
+.navigation-search-input:focus { /*focus is used for inputs instead of hover*/
+    background-color: rgba(0, 0, 0, .1);
+    background-color: #fff;
+}
+
+.navigation-search-btn {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1.7rem;
+    position: absolute; /*This is done so that it can be placed inside the input box*/
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.navigation-search-btn:focus {
+    outline: none;
+}
+
+.navigation-list {
+    list-style: none;
+    padding: 0; /*This is done so that the list items are perfectly centered because list items
+    have default padding*/
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation-item {
+    position: relative;
+}
+
+.navigation-link {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all .6s;
+}
+
+.navigation-link::before {
+    content: "";
+    width: 0rem;
+    height: .1rem;
+    background-color: #deaa86;
+    position: absolute;
+    top: 1rem;
+    left: -4rem;
+    transition: width .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigation-link::after {
+    content: "";
+    width: 0rem;
+    height: .1rem;
+    background-color: #deaa86;
+    position: absolute;
+    top: 1rem;
+    right: -4rem;
+    transition: width .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigation-link:hover {
+    text-decoration: underline;
+    font-size: 2.2rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+.navigation-link:hover::before, 
+.navigation-link:hover::after {
+    width: 3rem;
+} 
+
+.copyright {
+    color: #000;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox:checked ~ .navigation {
+    opacity: 100%;
+}
+
+/*these 3 below are used to make the clickable X*/
+.checkbox:checked ~ .sidebar-container .line-1 {
+    transform: rotate(-405deg) translate(-5px, 6px);
+    width: 2.5rem;
+}
+
+.checkbox:checked ~ .sidebar-container .line-2 {
+    opacity: 0;
+}
+
+.checkbox:checked ~ .sidebar-container .line-3 {
+    transform: rotate(405deg) translate(-5px, -6px);
+    width: 2.5rem;
+}
+
+.checkbox:checked ~ .sidebar-container {
+    border-left: none;
+}
+
+.navigation {
+    animation: anim 5s;
+    transition: all .8s cubic-bezier(1, 0, 0, 1);
+}
+
+/* Header */
+.header-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px solid white;
+    background: linear-gradient(to top, rgba(34, 32, 41, .5), rgba(34, 32, 41, .5)),
+    url(texture1.jpg) center no-repeat;
+    background-position-x: 20%;
+    background-position-y: 20%;
+    position: sticky;
+    top: 0;
+}
+
+.sticky-container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+}
+
+.h1-text {
+    font-size: 5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.logo {
+    color: #fff;
+    font-size: 6.5rem;
+    display: flex;
+    margin-left: -15rem;
+    text-decoration: none;
+    /* box-shadow: -0.4em 0.5em 0.4em -0.4em aqua; */
+    transition: all .6s;
+}
+
+.logo:hover {
+    color: aqua;
+}
+
+.an {
+    text-decoration: none;
+}
+
+/* End of Header */
+
+/* Second Page */
+
+.second-page-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    border-top: 4px solid #fff;
+    scroll-snap-align: start;
+}
+
+
+.stereo {
+    background: linear-gradient(to top, rgba(34, 32, 41, .2), rgba(34, 32, 41, .5)),
+    url(carstereo1.jpg) center no-repeat;    
+    width: 33.3%;
+    height: 100vh;
+    background-size: cover;
+    background-position: 100% 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    opacity: 70%;
+    transition: all .7s;
+    cursor: pointer;
+}
+
+.stereo:hover {
+    opacity: 100%;
+}
+
+.ferrari {
+    background: linear-gradient(to top, rgba(34, 32, 41, .2), rgba(34, 32, 41, .5)),
+    url(ferrari.jpg) center no-repeat;    
+    width: 33.3%;
+    height: 100vh;
+    background-size: cover;
+    background-position: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-right: 1px solid aqua;
+    opacity: 70%;
+    transition: all .7s;
+    cursor: pointer;
+}
+
+.ferrari:hover {
+    opacity: 100%;
+}
+
+
+.lambo {
+    background: linear-gradient(to top, rgba(34, 32, 41, .2), rgba(34, 32, 41, .5)),
+    url(lamborghini.jpg) center no-repeat;    
+    width: 33.3%;
+    height: 100vh;
+    background-size: cover;
+    background-position: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-left: 1px solid aqua;
+    opacity: 70%;
+    transition: all .7s;
+    cursor: pointer;
+}
+
+.lambo:hover {
+    opacity: 100%;
+}
+
+.second-page-h1 {
+    font-size: 4rem;
+    color: #fff;
+    margin: 0;
+}
+
+.second-page-h2 {
+    font-size: 3.3rem;
+    color: #fff;
+    font-weight: 300;
+}
+
+.third-page-container {
+    /* background: linear-gradient(to bottom, rgba(34, 32, 41, .2), rgba(34, 32, 41, .5)),
+    url(card1.jpg) center no-repeat;     */
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: 100% 35%;
+    display: flex;
+    border-top: 5px solid #ddd;
+    display: flex;
+    justify-content: center;
+    scroll-snap-align: start;
+}
+
+.third-page-title-container {
+    width: 50%;
+    height: 10%;
+    background-color: #FAFAFA;
+    margin-top: 6rem;
+    box-sizing: border-box;
+    box-shadow: 0 0.9em 0.9em -0.4em #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.third-page-title-container:active {
+   box-shadow: none;
+   border-bottom: .5px solid #000;
+}
+
+.third-page-h1 {
+    font-size: 4.5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.three-boxes-container {
+    width: 100%;
+    height: 55%;
+    position: absolute;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box {
+    box-shadow: 0 0.9em 0.9em -0.4em #000;
+    box-shadow: 0 0.9em 3em -0.4em #000;
+    border-radius: 10%;
+    transition: all .6s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+}
+
+.box-1 {
+    background: url(work1.jpeg) center no-repeat; 
+    background-size: cover;   
+    width: 31%;
+    height: 55%;
+    /* position: absolute; */
+    align-self: center;
+}
+
+.box-2 {
+    background: url(work4.jpeg) center no-repeat; 
+    background-size: cover;   
+    width: 31%;
+    height: 55%;
+    /* position: absolute; */
+    align-self: center;
+    justify-self: center;
+}
+
+.box-3 {
+    background: url(work3.jpeg) center no-repeat; 
+    background-size: cover;   
+    width: 31%;
+    height: 55%;
+    /* position: absolute; */
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.work-description-container {
+    width: 100%;
+    height: 30%;
+    background-color: #fff;
+    display: flex;
+    position: absolute;
+    /* border: 5px solid gold; */
+    align-self: center;
+    z-index: -1;
+    margin-top: -24rem;
+    justify-content: space-around;
+}
+
+.text-1 {
+    width: 31%;
+    height: 100%;
+    background-color: rgb(37, 164, 69);
+    border-top: .5rem solid #555;
+    border-bottom: .5rem solid silver;
+    box-sizing: border-box;
+}
+
+.text-2 {
+    width: 31%;
+    height: 100%;
+    background-color: #fff;
+    border-top: .5rem solid #555;
+    border-left: .3rem solid #555;
+    border-right: .3rem solid #555;
+    border-bottom: .5rem solid silver;
+    box-sizing: border-box;
+}
+
+.text-3 {
+    width: 31%;
+    height: 100%;
+    background-color: rgb(178, 56, 56);
+    border-top: .5rem solid #555;
+    border-bottom: .5rem solid silver;
+    box-sizing: border-box;
+}
+
+.card-1-title-container {
+    background-color: #555;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.card-1-title-text {
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.cards-body-container {
+    width: 100%;
+    height: 100%;
+    /* background-color: #deaa86; */
+}
+
+.cards-body-text {
+    font-size: 2.5rem;
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.card-2-title-container {
+    background-color: #555;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.card-2-title-text {
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.card-2-text {
+    color: #000;
+}
+
+.card-3-title-container {
+    background-color: #555;
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.card-3-title-text {
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.three-columns-anchor {
+    text-decoration: none;
+}

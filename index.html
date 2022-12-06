@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="profilepic8.png">
+    <script src="https://kit.fontawesome.com/ead536e1f1.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <title>Alex Portfolio</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+
+        <input type="checkbox" class="checkbox" id="click" hidden> <!--input should be put before all
+        the elements you are going to select. In this case the line and navigation elements 
+        that's why the input is put here. The hidden, hides the checkbox that would otherwise
+        appear on the page.-->
+
+        <!-- sidebar -->
+        <div class="sidebar">
+            <label for="click">
+                <div class="menu-icon">
+                    <div class="line line-1"></div>
+                    <div class="line line-2"></div>
+                    <div class="line line-3"></div>
+                </div>
+            </label>
+            <ul class="social-icons-list">
+                <li>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/alex.ochoa.7777" class="social-link"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="mailto:aochoasa@ucsc.edu" class="social-link"><i class="fa-regular fa-envelope"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/8aweb_designs/" class="social-link"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+
+            <div class="year">
+                <p>2022</p>
+            </div>
+        </div>
+        <!-- end of sidebar -->
+
+        <!-- navigation -->
+        <nav class="navigation">
+            <div class="navigation-header">
+                <h1 class="navigation-heading">Alejandro Ochoa</h1>
+
+                <form class="navigation-search" action="https://google.com">
+                    <input type="text" class="navigation-search-input" placeholder="Search...">
+                    <button class="navigation-search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a href="alex-portfolio.html" class="navigation-link">Home</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">About Me</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Projects</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Resume</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">CV</a>
+                </li>
+                <li class="navigation-item">
+                    <a href="#" class="navigation-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="copyright">
+                <p>&copy; 2022. Alejandro Ochoa</p>
+            </div>
+        </nav>
+        <!-- end of navigation -->
+    </div>
+
+    <!-- Header -->
+    <h3 class="header">
+        <div class="me">
+            <div class="button-move">
+                <button class="me-button">A.O.</button>
+            </div>
+        </div>
+
+        <div class="banner">
+            <h1 class="banner-name">Alejandro Ochoa</h1>
+        </div>
+    </h3>
+    <!-- End of Header -->
+
+    <!-- About Me -->
+    <div class="copy-projects-container">
+        <div class="copy-projects-section"></div>
+        <p class="copy-projects-text">SF Bay Area. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ipsam exercitationem excepturi iusto deleniti libero labore nisi error tempore, unde aperiam quibusdam similique et accusamus nobis, aut dolorem blanditiis debitis!
+            Illum voluptate similique, molestiae, nobis iusto maxime deserunt quidem ex, sequi</p>
+        <div class="copy-projects-images-wrapper">
+            <div class="copy-projects-images">
+               <h2 class="copy-about-me-header">About Me</h2>
+            </div>
+            <div class="copy-projects-images">
+                <img src="pic3.jpg" alt="" class="copy-project-image copy-project-image-1">
+                <img src="pic1.jpg" alt="" class="copy-project-image copy-project-image-2">
+                <img src="pic2.jpg" alt="" class="copy-project-image copy-project-image-3">
+                <img src="pic4.jpg" alt="" class="copy-project-image copy-project-image-4">
+            </div>
+        </div>
+    </div>
+    <!-- End of About Me -->
+
+    <!-- Projects -->
+    <div class="projects-container">
+        <div class="projects-section"></div>
+        <p class="projects-text">Projects</p>e
+        <div class="projects-images-wrapper">
+            <div class="projects-images">
+                <img src="projectspic5.jpg" alt="" class="project-image project-image-1">
+                <img src="projectspic2.jpg" alt="" class="project-image project-image-2">
+            </div>
+            <div class="projects-images">
+                <img src="projectspics1.jpg" alt="" class="project-image project-image-3">
+                <img src="dadwebsite.jpg" alt="" class="project-image project-image-4">
+            </div>
+        </div>
+    </div>
+    <!-- End of Projects -->
+</body>
+</html>

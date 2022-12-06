@@ -1,0 +1,892 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth; /*When you click on an a link the page doesn't scroll instantly*/
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.first-page-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    scroll-snap-align: start;
+}
+
+.filter {
+    width: 100%;
+    height: 100%;
+    /* background-color: #696969; */
+    background-color:hsla(0,100%,50%,1);
+    background-image:
+    radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+    radial-gradient(at 70% 62%, hsla(340,100%,76%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+    position: absolute;
+    z-index: 1;
+    opacity: 40%;
+    transition: all .5s;
+}
+
+.main-iphone-container {
+    width: 40%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background: linear-gradient(225deg, #e3e3e3, #ffffff);
+    box-shadow:  -29px 29px 59px #d6d6d6, 29px -29px 59px #ffffff;
+    position: absolute;
+    z-index: 1;
+}
+
+.logo-container {
+    width: 100%;
+    height: 80%;
+    background-color: none;
+    opacitdy: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.apple-logo {
+    font-size: 7rem;
+    color: #000;
+}
+
+.designed-by-apple-text {
+    text-decoration: none;
+    color: #000;
+}
+
+.iphone-background {
+    width: 32%;
+    height: 35vh;
+    display: flex;
+    /* background: url(iphonescreen.jpg) center no-repeat; If I add this then the iphone won't appear like it's sliding in when you hover over it*/
+    background-color:hsla(0,100%,50%,1);
+    background-image:
+    radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+    radial-gradient(at 70% 62%, hsla(340,100%,76%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+    border-radius: 30px;
+    box-shadow:  20px 20px 60px #d6d6d6, -20px -20px 60px #ffffff;
+    z-index: 1;
+    transition: all .6s;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.iphone-background:hover {
+    border-radius: 30px;
+    background: linear-gradient(145deg, #ffffff, #e3e3e3);
+    box-shadow:  9px 9px 57px #ababab,
+                 -9px -9px 57px #ffffff;
+
+    background: url(iphonescreen.jpg) center no-repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    width: 32%;
+    height: 35vh;
+    object-fit: cover
+}
+
+.iphone-text-container {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iphone-text-container:hover {
+    opacity: 0;
+}
+
+.iphone-text {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.apple-watch-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+}
+
+.applewatch {
+    border-radius: 30%;
+    background: #fcfcfc;
+    box-shadow: inset -9px 9px 18px #ababab, inset 9px -9px 18px #ffffff;
+    width: 20rem;
+    height: 20rem;
+    margin-bottom: 4rem;
+    background: url(applewatch.jpg) center no-repeat;
+    background-size: cover;
+    background-position: 100% 45%;
+    transition: all .6s;
+    position: absolute;
+    cursor: pointer;
+}
+
+.applewatch:hover {
+    border-radius: 30%;
+    background: linear-gradient(145deg, #ffffff, #e3e3e3);
+    box-shadow:  9px 9px 57px #ababab,
+                 -9px -9px 57px #ffffff;
+
+    background: url(applewatch.jpg) center no-repeat;
+    background-size: cover;
+    background-position: 100% 45%;
+    transform: scale(1.1);
+                 
+}
+
+.squares-container {
+    width: 20%;
+    height: 100vh;
+    margin-right: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+
+.squares:hover {
+    border-radius: 25px;
+    background: #fcfcfc;
+    box-shadow: inset -12px 12px 35px #888888, inset 12px -12px 35px #ffffff;
+}
+
+.left-side-bar {
+    /* width: 0%; */
+    /* margin-left: 18rem; adding these removes the background of the apple watch*/
+    width: 17%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background: linear-gradient(225deg, #e3e3e3, #ffffff);
+    box-shadow:  -29px 29px 59px #d6d6d6, 29px -29px 59px #ffffff;
+    margin-left: 8rem;
+    z-index: 2;
+}
+
+.straps-container {
+    width: 7rem;
+    height: 78rem;
+    border-radius: 34px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow-y: scroll; /*Without this the instagram videos would continue on the next page*/
+    justify-content: space-between;
+    margin-left: -.5rem;
+    border-radius: 49px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);  
+    box-shadow:  10px 10px 20px #696969,
+             -10px -10px 20px #ffffff;
+    scroll-snap-type: x mandatory; /*x-axis snap scrolling*/
+    scroll-padding: 0%; /*x-axis snap scrolling*/
+}
+
+.straps {
+    width: 100%;
+    height: 100%;
+    border-radius: 34px;
+    /* margin-left: -.5rem; */
+    cursor: e-resize;
+    scroll-snap-align: start; /*x-axis snap scrolling*/
+}
+
+.strap-one {
+    background: url(strap.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-two {
+    background: url(strap2.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-three {
+    background: url(strap3.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-four {
+    background: url(strap4.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-five {
+    background: url(strap5.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-six {
+    background: url(strap6.jpeg) center no-repeat;
+    background-size: cover;
+    background-position: 10% 50%;
+}
+
+.strap-seven {
+    background: url(strap7.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-eight {
+    background: url(strap8.jpg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-nine {
+    background: url(strap9.jpeg) center repeat;
+    background-size: contain;
+    background-position: 100% 100%;
+}
+
+.strap-ten {
+    background: url(strap10.jpeg) center no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+}
+
+.strap-eleven {
+    background: url(strap11.jpeg) center no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+}
+
+
+.first-page-right-side-bar-container {
+    width: 100vw;
+    height: 100%;
+    margin: 0px auto;
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.first-page-squares-container {
+    width: 25%;
+    height: 95%;
+    position: sticky;
+    top: 10%;
+    overflow-y: scroll; /*Without this, the images would continue on the next page*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-right: 4rem;
+    z-index: 3;
+    border-radius: 25px;
+    cursor: pointer;
+    scroll-snap-type: y mandatory; /*y-axis snap scrolling*/
+    /* margin-left: 9rem; */
+}
+
+.squares {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    margin-bottom: 3.8rem;
+    transition: box-shadow .6s;
+    cursor: pointer;
+    scroll-snap-align: center; /*y-axis snap scrolling*/
+    /* box-shadow: 12px 457px 7px -6px rgba(0,0,0,0.3); */
+
+    /* z-index: 2; */
+}
+
+/* Keyframes animations */
+.filter:hover {
+    opacity: 0%;
+}
+
+.filter {
+    animation: anim .8s .8s backwards;
+}
+
+@keyframes anim { 
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 40%;
+    }
+}
+
+.main-iphone-container {
+    animation: anim 1s .5s;
+}
+
+@keyframes anim { 
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.side-bar {
+    animation: anim 1s 1s;
+}
+
+@keyframes squareanim { 
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+.square-one {
+    animation: squareanim 2.3s 1.4s backwards;
+}
+.square-two {
+    animation: squareanim 2.5s 1.6s backwards;
+}
+/* End of Keyframes animations */
+
+/* Second Page */
+.second-page-container {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(245, 234, 220); */
+    background-color: rgb(240, 234, 220);
+    /* background-image: repeating-conic-gradient(from 30deg, #fafafa 0% 60deg, #ffffff 0% 120deg); */
+    background-size: 32px 55px;
+    background-color: antiquewhite;
+    background-color: #EDEDE9;
+}
+
+.second-page-iphone-title-container {
+    background-color: #ddd;
+    width: 22%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    align-self: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    margin-left: 50rem;     
+}
+
+.second-page-iphone-title-and-price {
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.second-page-apple-logo {
+    font-size: 7rem;
+    color: #000;
+    margin: 0;
+}
+
+.second-page-title {
+    margin-bottom: 10.5rem;
+}
+
+.second-page-price {
+    margin-bottom: 6rem;
+}
+
+.second-page-starting-iphone {
+    background: url(iphonescreen2.jpeg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    border-radius: 18px;
+    width: 80%;
+    height: 50%;
+    margin-top: -11rem;
+}
+
+.color-buttons-text-wrapper {
+    /* background-color: #bbb; */
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    z-index: 1;
+    align-self: flex-end;
+    justify-content: space-around;
+    position: absolute;
+}
+
+.color-buttons-description {
+    font-size: 2rem;
+    border-top: 2px solid black;
+    padding-top: 2rem;
+}
+
+.grey-button-text {
+    margin-left: -.6rem;
+}
+.yellow-button-text{
+    margin-left: -.6rem;
+}
+.green-button-text {
+    margin-left: -1rem;
+}
+.red-button-text {
+    margin-right: -.5rem;
+}
+
+.iphone-pick-color-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 2;
+    background-color: none;
+}
+
+.second-page-iphone-text-container {
+    width: 100%;
+    height: 80%;
+    background-color: none;
+    position: absolute;
+    align-self: flex-start;
+    background-coldor: #e78282;
+    display: flex;
+    justify-content: space-between;
+}
+
+.second-page-iphone-video-container {
+    display: flex;
+}
+
+.second-page-iphone-video-wrapper {
+    /* width: 20%; */
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+}
+
+.video-1 {
+    height: 100%;
+}
+
+.dynamic-island-video-wrapper {
+    width: 50%;
+    height: 50%;
+    background-coldor: #A70114;
+    position: absolute;
+    margin-right: 0rem;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-2 {
+    height: 70%;
+    position: absolute;
+    border-radius: 25px;
+    margin-left: 14rem;
+}
+
+.iphone-left-text-wrapper {
+    width: 30%;
+    height: 50%;
+    margin-top: 20rem;
+    margin-left: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 3;
+    border: 3px solid #eee;
+    border-radius: 24px;
+    background: #fafafa;
+    box-shadow:  15px -15px 21px #b8b8b8,
+                -15px 15px 21px rgb(197, 194, 194);
+}
+
+.iphone-left-text {
+    font-size: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 0rem;
+    font-weight: 300;
+}
+
+.color-squares {
+    width: 10%;
+    height: 5%;
+    margin-bottom: 4rem;
+    border-radius: 10px;
+}
+
+.color-1 {
+    background-color: #5A5857;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    margin-bottom: 10rem;
+    border-radius: 50%;
+}
+
+.color-2 {
+    background-color: #EEC634;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    margin-bottom: 10rem;
+    border-radius: 50%;
+}
+
+.color-3 {
+    background-color: #2E3D2E;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    margin-bottom: 10rem;
+    border-radius: 50%;
+}
+
+.color-4 {
+    background-color: #A70114;
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+    margin-bottom: 10rem;
+    border-radius: 50%;
+}
+
+.x-icon {
+    opacity: 0%;
+}
+
+.x {
+    font-size: 4rem;
+    font-weight: 300;
+    position: absolute;
+    margin-top: -10rem;
+    margin-top: -15rem;
+    margin-left: 10rem;
+}
+
+.grey-color-container {
+    width: 24%;
+    height: 50%;
+    background-colodr: gold;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* position: absolute; */
+    z-index: 4;
+}
+
+.grey-check:checked ~ .color-1 {
+    transform: translate(49rem, -24rem);
+    width: 23rem;
+    height: 37.5rem;
+    background: url(greyiphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    border-radius: 20px;
+    transition: all .4s;
+}
+
+.grey-check:checked ~ .x-icon {
+    color: red;
+    opacity: 100%;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.yellow-color-container {
+    width: 24%;
+    height: 50%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* position: absolute; */
+    z-index: 4;
+    /* margin-left: 40rem; */
+}
+
+.yellow-check:checked ~ .color-2 {
+    transform: translate(16.4rem, -24rem);
+    width: 23rem;
+    height: 37.5rem;
+    background: url(yellowiphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    border-radius: 20px;
+    transition: all .4s;
+}
+
+.yellow-check:checked ~ .x-icon {
+    color: red;
+    opacity: 100%;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.green-color-container {
+    width: 24%;
+    height: 50%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* position: absolute; */
+    z-index: 4;
+    /* margin-left: 70rem; */
+}
+
+.green-check:checked ~ .color-3 {
+    transform: translate(-16.5rem, -24rem);
+    width: 23rem;
+    height: 37.5rem;
+    background: url(greeniphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    border-radius: 20px;
+    transition: all .4s;
+}
+
+.green-check:checked ~ .x-icon {
+    color: red;
+    opacity: 100%;
+    transition: all .5s;
+    cursor: pointer;
+
+}
+
+.red-color-container {
+    width: 24%;
+    height: 50%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    /* position: absolute; */
+    z-index: 4;
+    /* margin-left: 90rem; */
+}
+
+.red-check:checked ~ .color-4 {
+    transform: translate(-49rem, -24rem);
+    width: 23rem;
+    height: 37.5rem;
+    background: url(rediphone.jpeg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    border-radius: 20px;
+    transition: all .4s;
+
+}
+
+.red-check:checked ~ .x-icon {
+    color: red;
+    opacity: 100%;
+    transition: all .5s;
+    cursor: pointer;
+}
+/* End of Second Page */
+
+/* Third Page */
+.third-page-container {
+    width: 100%;
+    height: 100vh;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.second-page-iphone-fan-container {
+    width: 50%;
+    height: 55%;
+    width: 18%;
+    height: 50%;
+    border-radius: 30px;
+    background-color: #d6d6d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: flex;
+    z-index: 3;
+}
+
+.second-page-iphone-fan-container .iphone-1 {
+    transition: all 1s;
+    background: url(rediphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    box-shadow: none;
+}
+.second-page-iphone-fan-container .iphone-2 {
+    transition: all 1s;
+    background: url(greeniphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    box-shadow: none;
+}
+.second-page-iphone-fan-container .iphone-3 {
+    transition: all 1s;
+    background: url(greyiphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    box-shadow: none;
+}
+.second-page-iphone-fan-container .iphone-4 {
+    transition: all 1s;
+    background: url(yellowiphone.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+    box-shadow: none;
+}
+.second-page-iphone-fan-container .iphone-5 {
+    transition: all 1s;
+    background: url(iphonescreen.jpg) center repeat;
+    background-size: cover;
+    background-position: 50% 100%;
+}
+
+
+.second-page-iphone-fan-container:hover .iphone-1 {
+    /* transform: translate(-120%, -75%) scale(1.1); */
+    transform: rotate(50deg);
+    margin-top: 5rem;
+    margin-right: -29rem;
+    box-shadow: none;
+}
+.second-page-iphone-fan-container:hover .iphone-2 {
+    /* transform: translate(30%, -75%) scale(1.1); */
+    transform: rotate(28deg);
+    margin-top: 3rem;
+    margin-right: -20rem;
+    box-shadow: none;
+    box-shadow:  -7px -7px 11px #dad5c8,
+             7px 7px 11px #000;
+}
+.second-page-iphone-fan-container:hover .iphone-3 {
+    /* transform: translate(155%, -75%) scale(1.1); */
+    transform: rotate(-50deg);
+    margin-top: 5rem;
+    margin-left: -29rem;
+    box-shadow: none;
+    
+
+}
+.second-page-iphone-fan-container:hover .iphone-4 {
+    /* transform: translate(-245%, -75%) scale(1.1); */
+    transform: rotate(-28deg);
+    margin-top: 3rem;
+    margin-left: -20rem;
+    box-shadow: none;
+     box-shadow:  7px -7px 11px #dad5c8,
+    -7px 7px 11px #000;
+}
+
+.iphone {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    box-shadow:  7px -7px 11px #dad5c8,
+    -7px 7px 11px #bbb;
+    position: absolute;
+    cursor: pointer;
+}
+
+.iphone-1 {
+    transform: all .6s;
+}
+.iphone-2 {
+    transform: all .6s;
+}
+.iphone-3 {
+    transform: all .6s;
+}
+.iphone-4 {
+    transform: all .6s;
+}
+
+.iphone-1:hover {
+    margin-left: 20rem;
+}
+
+.iphone-2:hover {
+    margin-left: 10rem;
+
+}
+.iphone-3:hover {
+    margin-right: 20rem;
+}
+.iphone-4:hover {
+    margin-right: 10rem;
+
+}
+
+
+
+/* End of Third Page */
+

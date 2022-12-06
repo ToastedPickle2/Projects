@@ -1,0 +1,821 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bai Jamjuree', sans-serif;
+    overflow-x: hidden; /*This prevents the entire page from overflowing*/
+    /* overflow: hidden; */
+}
+
+.container {
+    width: 100vw;
+    height: 383vh;
+    background-color: #fff;
+    position: relative;
+/*  overflow: hidden; If this is added when the page is shrinked vertically you won't
+    be able to scroll through the page*/
+    /* 
+    IMPORTANT: Adding these means that when the page is shrinked vertically
+    the elements will all merge together. Do not add this:
+    display: flex;
+    flex-direction: column; 
+    */
+}
+
+.bg-header {
+    width: 100%;
+    height: 40rem;
+    position: absolute;
+}
+
+.first-page-content-container {
+    width: 100%;
+    height: 91rem;
+    background-color: none;
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 13rem;
+    margin-top: -55rem;
+    position: absolute;
+}
+
+.header-1-wrapper {
+    width: 50%;
+    height: 25%;
+    background-color: ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: -10rem;
+    position: absolute;
+}
+
+.header-1-text {
+    font-size: 4.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #505961;
+}
+
+.sub-header-1-text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: #C6C9CC;
+}
+
+.buttons-wrapper {
+    width: 35%;
+    height: 10rem;
+    background-color: ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    margin-bottom: -18rem;
+    z-index: 10;
+}
+
+.buttons {
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    border-radius: 25px;
+    width: 20rem;
+    font-size: 1.8rem;
+    border: none;
+}
+
+.button-1:active {
+    background-color: #5CCCBB;
+}
+
+.button-anchor {
+    text-decoration: none;
+    color: #fff;
+}
+
+.button-1 {
+    margin-right: .5rem;
+    background-color: #26BBA5;
+    box-shadow: 0px 14px 22px -6px rgba(38,187,165,0.31);
+}
+
+.button-2 {
+    margin-left: .5rem;
+    background-color: #6273FF;
+    box-shadow: 0px 14px 22px -1px rgba(233,234,235,1);
+}
+
+.button-2:active {
+    background-color: #8896FF;
+}
+
+.header-2-wrapper {
+    width: 50%;
+    height: 15%;
+    height: 25%;
+    background-color: ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: -60rem;
+    position: absolute;
+}
+
+.header-2-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #505961;
+}
+
+.sub-header-2-text {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: #C6C9CC;
+}
+
+
+/* Second Page */
+
+.second-page-content-container {
+    width: 100%;
+    height: 91rem;
+    background-color: none;
+    /* position: absolute; */
+}
+
+.second-page-section-1-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: none;
+    justify-content: space-between;
+}
+
+.computer-image {
+    margin-top: -17rem;
+    margin-left: -4rem;
+    width: 74rem;
+}
+
+.second-page-section-1-text-wrapper {
+    width: 45rem;
+    height: 45rem;
+    background-color: none;
+    flex-wrap: wrap;
+    margin-top: -18rem;
+    margin-right: 3.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.page-2-header-text {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #43484C;
+    margin: 0;
+}
+
+.page-2-sub-header-text {
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin-top: -5rem;
+    line-height: 3rem;
+    color: #BDBFC1;
+}
+
+.page-2-text-wrapper-2 {
+    width: 100%;
+    height: 18rem;
+    background-color: none;
+    position: absolute;
+    margin-top: 85rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.page-2-header-2-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #505961;
+}
+
+.page-2-sub-header-2-text {
+    font-size: 1.8rem;
+    padding-left: 25rem;
+    padding-right: 25rem;
+    line-height: 3rem;
+    color: #C6C9CC;
+    font-weight: 400;
+}
+
+/* End of Second Page */
+
+/* Third Page */
+
+.third-page-content-container {
+    width: 100%;
+    height: 60rem;
+    background-color: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+}
+
+.devices-image {
+    width: 90rem;
+    margin-left: 7rem;
+    position: absolute;
+/*  box-shadow: 0px 14px 24px 0px rgba(238,238,238,1); Nice box-shadow for white backgrounds */
+}
+
+/* End of Third Page */
+
+/* Fourth Page */
+
+.fourth-page-content-container {
+    width: 100%;
+    height: 110rem;
+    background-color: none;
+}
+
+.fourth-page-header-wrapper {
+    width: 100%;
+    height: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: none;
+    text-align: center;
+}
+
+.page-4-header-text-1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #505961;
+}
+
+.page-4-sub-header-text-1 {
+    font-size: 1.8rem;
+    padding-left: 25rem;
+    padding-right: 25rem;
+    line-height: 3rem;
+    color: #C6C9CC;
+    font-weight: 400;
+}
+
+
+.fourth-page-sub-headers-icons-wrapper {
+    width: 100%;
+    height: 30%;
+    background-color: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.sub-header-icon-wrapper-1 {
+    width: 35rem;
+    height: 55%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.blacklist-icon {
+    width: 15%;
+    margin-top: 1.1rem;
+}
+
+.page-4-header-text-2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #43484C;
+}
+
+.page-4-sub-header-text-2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: #BDBFC1;
+    margin-top: -1.5rem;
+}
+
+
+.sub-header-icon-wrapper-2 {
+    width: 35rem;
+    height: 55%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.text-icon {
+    width: 15%;
+    margin-top: 1.1rem;
+}
+
+.sub-header-icon-wrapper-3 {
+    width: 35rem;
+    height: 55%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.preview-icon {
+    width: 15%;
+    margin-top: 1.1rem;
+}
+
+.company-icons-and-clipboard-wrapper {
+    width: 100%;
+    height: 52%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-icons-wrapper {
+    width: 100%;
+    height: 40%;
+    background-color: none;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.company-logos {
+    /* width: 8rem; */
+    height: 4.5rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+}
+
+.microsoft-logo {
+    /* width: 8rem; */
+    height: 3.8rem;
+    margin-right: 2rem;
+}
+
+.hp-logo {
+    height: 4.7rem;
+}
+
+.vg-logo {
+    height: 3rem;
+}
+
+.last-page-clipboard-and-buttons-wrapper {
+    width: 100%;
+    height: 60%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.last-page-header-wrapper {
+    width: 100%;
+    height: 40%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.last-page-buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: none;
+    width: 100%;
+    height: 60%;
+}
+
+.last-page-buttons {
+    padding: 1.5rem 2rem 1.5rem 2rem;
+    border-radius: 25px;
+    width: 20rem;
+    font-size: 1.8rem;
+    border: none;
+    margin-top: 4rem;
+}
+
+.last-page-header-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #505961;
+}
+
+.last-page-sub-header-text {
+    font-size: 1.8rem;
+    padding-left: 30rem;
+    padding-right: 30rem;
+    line-height: 3rem;
+    color: #C6C9CC;
+    font-weight: 400;
+}
+
+
+.footer-container {
+    width: 100%;
+    height: 15%;
+    background-color: #F5F6F8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-container-1 {
+    height: 100%;
+    width: 60%;
+    background-color: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer-container-2 {
+    height: 100%;
+    width: 20%;
+    background-color: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 3.5rem;
+}
+
+.footer-text-1-wrapper {
+    margin-bottom: 4rem;
+}
+
+.footer-text-2-wrapper {
+    margin-bottom: 4rem;
+}
+
+.install-footer-text {
+    margin-bottom: 4.5rem;
+}
+
+.footer-logo {
+    width: 6rem;
+    margin-bottom: 4rem;
+}
+
+.footer-text {
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+
+.footer-icons {
+    width: 2.7rem;
+    margin-bottom: 4rem;
+}
+
+/* End of Fourth Page */
+
+
+
+/* Responsiveness */
+
+@media (max-width: 1190px) { /*420px*/
+    .button-1 {
+        margin-right: 0;
+    }
+
+    .button-2 {
+        margin-left: 0;
+    }
+
+    .container {
+        height: 566vh;
+    }
+
+    .bg-header {
+        height: 33rem;
+    }
+
+    .header-1-wrapper {
+        background-color: none;
+        width: 100%;
+    
+    }
+
+    .header-1-text {
+        font-size: 3rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .buttons {
+        width: 25rem;
+    }
+
+    .buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 12rem;
+        width: 100%;
+        background-color: none;
+        margin-bottom: -25rem;
+    }
+
+    .header-2-wrapper {
+        margin-bottom: -95rem;
+        width: 100%;
+    }
+
+    .header-2-text {
+        font-size: 3rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .sub-header-1-text {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+    .sub-header-2-text {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+
+    .second-page-content-container {
+        margin-top: 15rem;
+        height: 130rem;
+    }
+
+    .second-page-section-1-wrapper {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .computer-wrapper {
+        background-color: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 0rem;
+    }
+
+    .computer-image {
+        margin: auto 50%;
+        max-width: 75%; /*This shrinks the image as the page shrinks.*/
+        max-width: 40rem;
+    }
+
+    .devices-image {
+        max-width: 75%;
+        margin: auto 50%;
+        margin-top: 9rem;
+    }
+
+    .second-page-section-1-text-wrapper {
+        width: 100%;
+        height: 45rem;
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        text-align: center;
+        margin-bottom: 40rem;
+    }
+
+    .page-2-sub-header-text {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+    .page-2-text-wrapper-2 {
+        width: 100%;
+        position: absolute;
+        margin-top: 112rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .page-2-sub-header-2-text {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+    .third-page-content-container {
+        height: 35rem;
+        background-color: none;
+        margin-top: -2rem;
+    }
+
+    .fourth-page-content-container {
+        margin-top: 9rem;
+    }
+
+    .page-4-sub-header-text {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+
+    .page-4-sub-header-text-1 {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    .fourth-page-sub-headers-icons-wrapper {
+        margin-top: 7rem;
+        margin-bottom: 9rem;
+    }
+
+    .sub-header-icon-wrapper-1 {
+        margin-bottom: 4rem;
+    }
+
+    .sub-header-icon-wrapper-2 {
+        margin-bottom: 4rem;
+    }
+    
+    
+    .company-icons-wrapper {
+        margin-top: 30rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    .company-logos {
+        /* margin-right: 2rem; */
+        height: 5rem;
+        width: 12rem;
+        margin-right: 0;
+        margin-bottom: 5rem;
+    }
+
+    .microsoft-logo {
+        height: 3.5rem;
+        width: 9.5rem;
+    }
+
+    .vg-logo {
+        height: 3rem;
+        width: 9rem;
+    }
+
+    .fourth-page-header-wrapper {
+        height: 20%;
+    }
+
+    .company-icons-and-clipboard-wrapper {
+        margin-bottom: -10rem;
+    }
+
+    .last-page-buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 12rem;
+        width: 100%;
+        background-color: none;
+        margin-bottom: -25rem;
+    }
+
+    .last-page-buttons {
+        width: 25rem;
+    }
+
+    .last-page-clipboard-and-buttons-wrapper {
+        margin-top: 20rem;
+    }
+
+    .last-page-header-text {
+        padding-left: 7rem;
+        padding-right: 7rem;
+        font-size: 3rem;
+    }
+
+    .last-page-sub-header-text {
+        padding-left: 5rem;
+        padding-right: 5rem;
+        font-size: 1.5rem;
+    }
+    .footer-container {
+        margin-top: 115rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 47%;
+        background-color: #F5F6F8;
+    }
+
+    .footer-container-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-align: center;
+        height: 52%;
+    }
+
+    .footer-container-2 {
+        height: 10%;
+        width: 40%;
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .footer-icons {
+        margin-top: 1rem;
+    }
+    .footer-text {
+        margin: 0;
+        margin-bottom: 3rem;
+        font-size: 1.9rem;
+    }
+
+    .install-footer-text {
+        margin-bottom: -3rem;
+    }
+
+    .footer-text-1-wrapper {
+        background-color: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .footer-text-2-wrapper {
+        background-color: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 30%;
+        margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+        width: 5.8rem;
+        margin-top: 13rem;
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        height: 628vh;
+    }
+    .computer-image {
+        max-width: 75%;
+        margin-top: 5rem;
+    }
+
+    .page-2-sub-header-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* End of Responsiveness */

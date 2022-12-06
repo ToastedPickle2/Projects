@@ -1,0 +1,2584 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth; /*When you click on an a link the page doesn't scroll instantly*/
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden; /*This prevents the entire page from overflowing*/
+    /* overflow: hidden; */
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-image: linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%);
+    border-radius: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: url(https://images.unsplash.com/photo-1527672809634-04ed36500acd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGJhbGx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-image: linear-gradient(to top, #bbb 0%, #bbb 100%);
+    border-radius: 3em;
+}
+
+.first-page-container {
+    width: 100%;
+    height: 200vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /*If overflow:hidden was added then the sticky elements would not work anymore*/
+    /* background-color: antiquewhite;
+    background-image: linear-gradient(to bottom, #00dbde 0%, #6129d0 100%);
+
+    background-image: url(https://images.unsplash.com/photo-1556742111-a301076d9d18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fHN0b3JlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background: linear-gradient(to top, rgba(34, 32, 41, .3), rgba(34, 32, 41, .2)),
+    url(payyy.jpg) center no-repeat;    
+    background-size: cover;
+    background-position: 10% 100%; */
+    background-color: #432818;
+
+    /*Better than overflow:hidden because with overflow: hidden position: sticky would NOT work*/
+    /*contain: paint; */ /*IMPORTANT - without this the entire page would overflow*/
+}
+
+.day-night-switdch-container {
+    width: 100%;
+    height: 50%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.slider {
+    background-color: antiquewhite;
+    border-radius: 30px;
+    width: 9rem;
+    height: 3.7rem;
+    position: absolute;
+    margin-top: 2rem;
+    border-radius: 41px;
+    background: #ddd;
+    cursor: auto;
+    border: 1px solid #000;
+    margin-left: 52rem;
+}
+
+.toggle:checked ~ .slider {
+    background-color: #000;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    top: 1.4px;
+    left: 10px;
+    background: url(lightbulb-on-thin.svg);
+    background-color: #fff;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.toggle:checked ~ .slider::before {
+    transform: translate(3.7rem);
+    background-color: #fff;
+    transition: all .4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border: 1px solid #fff;
+    background: url(moon-solid.svg);
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+/* .slider::after {
+    content: "";
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    top: 1.4px;
+    left: 47px;
+    background: url(lightbulb-slash-solid.svg);
+    background-color: #fff;
+    border: 2px solid #000;
+    opacity: 0%;
+}
+
+.toggle:checked ~ .slider::after {
+    opacity: 100%;
+    transition: all .8s;
+} */
+
+.first-page-content-wrapper {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(34, 32, 41, .3), rgba(34, 32, 41, .2)),
+    url(nightbg.jpg) center no-repeat;    
+    background-size: cover;
+    background-position: 10% 100%;
+    margin-top: -10rem;
+    /* position: absolute; */
+}
+
+.switch-container {
+    /* background-color: purple; */
+    position: sticky;
+    top: 0;
+}
+
+.switch-icon {
+    z-index: 3;
+    border-radius: 30px;
+    width: 9rem;
+    height: 1.8rem;
+    position: absolute;
+    border-radius: 41px;
+    background: #fff;
+    cursor: auto;
+    border: 2px solid #000;
+    margin: 95.5vh auto; /*This puts the switch icon on the bottom of the page*/
+    right: 1rem; /*IMPORTANT: This puts it on the right side of the page, without this it would be on the left*/
+} 
+
+.lightbulb {
+    height: 3.2rem;
+    width: 3.2rem;
+    border-radius: 50%;
+    margin-left: 1rem;
+    margin-top: -1rem;
+    background: url(sun-solid.svg);
+    background-color: #fff;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .switch-icon {
+    background-color: #000;
+    border: 2px solid aqua;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .lightbulb {
+    transform: translate(3.7rem);
+    background-color: #fff;
+    transition: all .4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border: 1px solid #fff;
+    background: url(moon-solid.svg) center no-repeat;
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch {
+    background: linear-gradient(to top, rgba(34, 32, 41, .3), rgba(34, 32, 41, .7)),
+    url(nightbg.jpg) center no-repeat; 
+    background-size: cover;
+    background-position: 10% 100%;
+}
+
+.page-color-switch {
+    width: 100%;
+    height: 100%;
+    background: url(skybg.jpg) center no-repeat;
+    background-size: cover;
+    background-position: 10% 100%;
+/* 
+    background: repeating-radial-gradient(circle, transparent, transparent 35.0px, #ffffff 35.0px, #ffffff 45.0px), repeating-radial-gradient(circle, transparent, transparent 35.0px, #ffffff 35.0px, #ffffff 45.0px), #432818;
+background-size: 200px 200px;
+background-position: 0 0, 100px 100px, 200px 100px;
+background-color: #432818;
+
+background: repeating-radial-gradient(circle, transparent, transparent 33.6px, #432818 33.6px, #432818 43.2px), repeating-radial-gradient(circle, transparent, transparent 33.6px, #432818 33.6px, #432818 43.2px), #ffffff;
+background-size: 192px 192px;
+background-position: 0 0, 96px 96px, 192px 96px;
+background-color: #ffffff; */
+}
+
+.navbar-container {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #432818;
+    border-bottom: 2px solid #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10; /*Without this the Discover text would go on top of it*/
+}
+
+.navbar-logo-container {
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    background-color: none;
+    position: relative;
+}
+
+.navbar-logo {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+    margin-left: 2rem;
+    margin-top: -4rem;
+    background: url(logo4.jpg) center no-repeat;
+    background-size: contain;
+    background-position: 10% 100%;
+    position: absolute;
+}
+
+.navbar-center-content-wrapper {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    background-color: none;
+    margin-left: 11rem;
+    position: absolute;
+    z-index: -1;
+}
+
+.men-wrapper { /*restore - delete extra e*/
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: none;
+    height: 100%;
+    width: 30%;
+    /* width: 30rem; If I use 30%, the width will change if the page is made bigger or smaller */
+    margin-left: 11rem; /*yogi */
+    position: relative;
+}
+
+.women-wrapper { /*restore - delete extra e*/
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: none;
+    height: 100%;
+    /* width: 30rem; */
+    width: 30%;
+    margin-left: 0rem;
+}
+
+.men-navbar-dropdown-container {
+    width: 45rem;
+    height: 54rem;
+    display: flex;
+    visibility: hidden;
+    position: absolute;
+    opacity: 95%;
+    margin-bottom: -76rem;
+    margin-right: -8.5rem;
+    border-radius: 5px;
+    border-right: 5px solid #ddd;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    background: #ffffff;
+    box-shadow: -14px 14px 18px rgb(92, 92, 92),
+                -14px 14px 18px rgb(92, 92, 92);
+    box-shadow: -1px 18px 25px #22223b,
+                -10px 14px 25px #22223b;
+
+    background: repeating-radial-gradient(circle, transparent, transparent 35.0px, #ffffff 35.0px, #ffffff 45.0px), repeating-radial-gradient(circle, transparent, transparent 35.0px, #ffffff 35.0px, #ffffff 45.0px), #432818;
+    background-size: 200px 200px;
+    background-position: 0 0, 100px 100px, 200px 100px;
+    background-color: #432818;
+
+}
+
+.men-checkbox:checked ~ .men-wrapper .men-navbar-dropdown-container { 
+    visibility: visible;
+}
+
+.women-navbar-dropdown-container {
+    width: 45rem;
+    height: 54rem;
+    display: flex;
+    visibility: hidden;
+    border-radius: 10px;
+    position: absolute;
+    opacity: 95%;
+    background-color: #060A11;
+    margin-bottom: -76rem;    
+    border-radius: 5px;
+    margin-left: 8.5rem;
+    border-left: 5px solid #ddd;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    background: #ffffff;
+    box-shadow: 1px 18px 25px #22223b,
+                10px 14px 25px #22223b;
+
+    background: repeating-radial-gradient(circle, transparent, transparent 35.0px, #ffffff 35.0px, #ffffff 45.0px), repeating-radial-gradient(circle, transparent, transparent 35.0px, #ffffff 35.0px, #ffffff 45.0px), #432818;
+    background-size: 200px 200px;
+    background-position: 0 0, 100px 100px, 200px 100px;
+    background-color: #432818;
+
+}
+
+.women-new-items-container {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.women-exclusive-deals-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    transition: all .1s;
+}
+
+.women-exclusive-deals-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.women-exclusive-anchor {
+    text-decoration: none;
+}
+
+.women-view-all-deals {
+    font-weight: 500;
+    background-color: goldenrod;
+    color: #fff;
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: all .1s;
+    border: 1px solid #000;
+}
+
+.women-view-all-deals:hover {
+    opacity: 80%;
+}
+
+.women-view-all-deals:active {
+    opacity: 50%;
+}
+
+.women-new-arrivals-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #432818;
+    transition: all .1s;
+}
+
+.women-new-arrivals-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.women-new-arrivals-anchor {
+    text-decoration: none;
+}
+
+.women-sale-items-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: all .1s;
+}
+
+.women-sale-items-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.women-sales-anchor {
+    text-decoration: none;
+}
+
+.women-main-clothes-container {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.women-tops-title-wrapper {
+    width: 100%;
+    height: 15%;
+    /* background-color: #bbb; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.women-main-clothes-headings {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.women-first-four-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #2f2f32; */
+}
+
+.women-tops-text {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: .4rem;
+    font-weight: 300;
+}
+
+.women-tops-text:hover {
+    text-decoration: underline;
+}
+
+.women-tops-text-anchor {
+    text-decoration: none;
+}
+
+.women-bottoms-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: all .1s;
+}
+
+.women-bottoms-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.women-bottoms-text-anchor {
+    text-decoration: none;
+}
+
+.women-main-clothdes-headings {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.women-jeans-text {
+    margin-top: .5rem;
+}
+
+.women-accessories-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #432818;
+    transition: all .1s;
+}
+
+.women-accessories-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.women-view-all {
+    background-color: #fff;
+    color: #432818;
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: all .1s;
+    border: 1px solid antiquewhite;
+    font-weight: 900;
+}
+
+.women-view-all:hover {
+    text-decoration: underline;
+    background-color: goldenrod;
+    color: #fff;
+}
+
+.women-view-all:active {
+    opacity: 70%;
+}
+
+
+
+.women-checkbox:checked ~ .women-wrapper .women-navbar-dropdown-container {
+    visibility: visible;
+}
+
+.nav-divider-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative; /*restore - change this to relative*/
+    background-color: blude;
+}
+
+.divider-icon {
+    margin-left: 4.6rem; 
+    position: absolute;
+}
+
+.navbar-text {
+    font-size: 4rem;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    margin-left: 7.5rem;
+}
+
+.men {
+    cursor: pointer;
+    transition: all .3s;
+    position: absolute;
+    margin-top: -2rem;
+    margin-left: -1rem; 
+}
+
+.men-x {
+    height: 2.5rem;
+    width: 2.5rem;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* top: 13.8rem;
+    right: 35rem; */
+    margin-top: 11rem;
+    margin-left: -37.1rem;
+    z-index: 1;
+    background-position: 50% 100%;
+    border-radius: 4px;
+    background-color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.men-dropdown-title {
+    height: 3.5rem;
+    width: 10rem;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    margin-top: 11rem;
+    margin-left: -20.1rem;
+    position: absolute;
+    z-index: 1;
+    background-position: 50% 100%;
+    background-color: #fff;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    background-color: none;
+    font-size: 2rem;
+}
+
+.men-x:hover .men-x-icon { /**/
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    padding: .5rem;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    border-radius: 4px;
+    font-size: 2.5rem;
+}
+
+.men-x-icon {
+    color: #000;
+    font-size: 2rem;
+    position: absolute; /**/
+    transition: all .1s; /**/
+}
+
+.men-checkbox:checked ~ .men-wrapper .men-x {
+    visibility: visible;
+}
+.men-checkbox:checked ~ .men-wrapper .men-dropdown-title {
+    visibility: visible;
+}
+
+
+.men:hover {
+    transform: scale(1.1);
+    color: #bbb;
+
+}
+
+.men:active {
+    transform: scale(1);
+}
+
+.men-new-items-container {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.men-exclusive-deals-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fff;
+    transition: all .1s;
+}
+
+.men-exclusive-deals-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.exclusive-deals-title-text {
+    color: #432818;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.exclusive-deals-text {
+    color: #432818;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.exclusive-deals-text:hover {
+    text-decoration: underline;
+}
+
+.men-exclusive-anchor {
+    text-decoration: none;
+}
+
+.men-view-all-deals {
+    font-weight: 500;
+    background-color: goldenrod;
+    color: #fff;
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: all .1s;
+    border: 1px solid #000;
+}
+
+.men-view-all-deals:hover {
+    opacity: 80%;
+}
+
+.men-view-all-deals:active {
+    opacity: 50%;
+}
+
+.men-new-arrivals-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #432818;
+    transition: all .1s;
+}
+
+.men-new-arrivals-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.new-arrivals-title-text {
+    color: #fff;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.new-arrivals-text {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.new-arrivals-text:hover {
+    text-decoration: underline;
+}
+
+.men-sale-items-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: all .1s;
+}
+
+.sales-title-text {
+    color: #432818;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+}
+
+.men-sales-anchor {
+    text-decoration: none;
+}
+
+.sales-text {
+    color: #432818;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.sales-text:hover {
+    text-decoration: underline;
+}
+
+.sales-discount-text-1:after {
+    content: '50%';
+    background-color: goldenrod;
+    color: #fff;
+    margin-left: 1rem;
+    padding: .5rem;
+    font-weight: 600;
+}
+.sales-discount-text-2:after {
+    content: '40%';
+    background-color: goldenrod;
+    color: #fff;
+    margin-left: 2.5rem;
+    padding: .5rem;
+    font-weight: 600;
+}
+.sales-discount-text-3:after {
+    content: '30%';
+    background-color: goldenrod;
+    color: #fff;
+    margin-left: 1.7rem;
+    padding: .5rem;
+    font-weight: 600;
+}
+
+.men-sale-items-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.men-main-clothes-headings {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.men-main-clothes-container {
+    width: 50%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.tops-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    background-color: #432818;
+    transition: all .1s;
+}
+
+.tops-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.men-tops-title-wrapper {
+    width: 100%;
+    height: 15%;
+    /* background-color: #bbb; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tops-title-text {
+    position: absolute;
+    margin: 0;
+    margin-top: 1.8rem;
+    align-self: center;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.men-first-four-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #2f2f32; */
+}
+
+.men-tops-text {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: .4rem;
+    font-weight: 300;
+}
+
+.men-tops-text:hover {
+    text-decoration: underline;
+}
+
+.bottoms-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transition: all .1s;
+}
+
+.bottoms-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.bottoms-title-text {
+    color: #432818;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.bottoms-text {
+    color: #432818;
+    font-weight: 350;
+    margin-bottom: .4rem;
+}
+.bottoms-text:hover {
+    text-decoration: underline;
+}
+
+.men-tops-text-anchor {
+    text-decoration: none;
+}
+
+.men-jeans-text {
+    margin-top: .5rem;
+}
+
+.accessories-wrapper {
+    width: 100%;
+    height: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #432818;
+    transition: all .1s;
+}
+
+.accessories-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.accessories-text {
+    margin-bottom: .4rem;
+}
+
+.accessories-text:hover {
+    text-decoration: underline;
+}
+
+.accessories-title-text {
+    color: #fff;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 1.2rem;
+}
+
+.men-view-all {
+    font-weight: 500;
+    background-color: #fff;
+    color: #432818;
+    padding: .5rem 1rem .5rem 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    transition: all .1s;
+    border: 1px solid antiquewhite;
+}
+
+.men-view-all:hover {
+    text-decoration: underline;
+    background-color: goldenrod;
+    color: #fff;
+}
+
+.men-view-all:active {
+    opacity: 70%;
+}
+
+.anchor-view-all {
+    text-decoration: none;
+}
+
+.women {
+    margin-left: 9.5rem; 
+    margin-top: -2rem;
+    cursor: pointer;
+    transition: all .3s;
+    position: absolute;
+}
+
+.women-x {
+    height: 2.5rem;
+    width: 2.5rem;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    /* top: 11rem;
+    left: 43rem; */
+    margin-top: 11rem;
+    margin-left: 51.4rem;
+    z-index: 1;
+    background-position: 50% 100%;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: none;
+    cursor: pointer;
+}
+
+.women-x:hover .women-x-icon { /**/
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    padding: .5rem;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    border-radius: 4px;
+    font-size: 2.5rem;
+}
+
+.women-x-icon {
+    color: #000;
+    font-size: 2rem;
+    position: absolute; 
+    transition: all .1s; 
+}
+
+.women-dropdown-title {
+    height: 2.5rem;
+    height: 3.5rem;
+    width: 10rem;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 11rem;
+    margin-left: 25.8rem;
+    z-index: 1;
+    background-position: 50% 100%;
+    background-color: #fff;
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    background-color: none;
+    font-size: 2rem;
+}
+
+.women-checkbox:checked ~ .women-wrapper .women-x {
+    visibility: visible;
+}
+
+.women-checkbox:checked ~ .women-wrapper .women-dropdown-title {
+    visibility: visible;
+}
+
+
+
+.women:hover {
+    transform: scale(1.1);
+    color: #bbb;
+}
+
+.women:active {
+    transform: scale(1);
+}
+
+.bag-heart-icons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+    width: 7rem;
+    margin-right: 5rem;
+}
+
+.nav-bag-heart-icons {
+    font-size: 2.4rem;
+    color: #fff;
+    margin-top: 5rem;
+}
+
+.nav-bag-icon {
+    margin-left: -3.5rem;
+    transition: all .2s;
+}
+.nav-heart-icon {
+    margin-right: 3rem;
+    transition: all .2s;
+}
+
+.nav-bag-icon:hover {
+    color: #CBF3F0;
+}
+.nav-heart-icon:hover {
+    color: #f8595f;
+}
+
+/* .top-right-icons-container {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: green;
+} */
+
+.search-wrapper {
+    margin-right: 2rem;
+    margin-top: 4rem;
+}
+
+.search-input {
+    padding: .8rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+.search-icon {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-left: 1rem;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: space-between;
+    max-height: 30%;
+    max-width: 100%;
+    width: 100%
+    background-color: none;
+    margin-top: -1rem;
+    margin-left: -6rem;
+    position: absolute;
+}
+
+.user-icons {
+    font-size: 3rem;
+    color: #fff;
+    transition: all .1s;
+}
+
+.user-icons:hover {
+    color: #cccc;
+}
+
+.user-login-icons-wrapper {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    background-color: none;
+    position: absolute;
+    margin-left: 10rem;
+}
+
+.login-wrapper {
+    position: relative;
+}
+
+.login-text {
+    visibility: hidden;
+    background-color: #bbb;
+    width: 5.5rem;
+    letter-spacing: .1rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    top: 35px;
+    right: 23px;
+    font-size: 1.6rem;
+}
+
+.login-wrapper:hover .login-text { /*The parent container, join-wrapper, has to have position relative and child, join-text, position absolute for this to work*/
+    visibility: visible;
+}
+
+.join-wrapper {
+    position: relative;
+}
+
+.join-text {
+    visibility: hidden;
+    background-color: #bbb;
+    width: 5.5rem;
+    letter-spacing: .1rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: center;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: absolute;
+    top: 35px;
+    left: 33px;
+    font-size: 1.6rem;
+}
+
+.join-wrapper:hover .join-text {
+    visibility: visible;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .user-icons {
+    color: #000;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .search-icon {
+    color: #000;
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .user-icons:hover {
+    color: darkgray;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .search-icon:hover {
+    color: dimgray;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container {
+    background-color: #e5e5e5;
+    border-bottom: 2px solid #000;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .nav-bag-heart-icons {
+    color: #000; /*change color of bag and heart icons*/
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .nav-heart-icon:hover {
+    color: red;
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .nav-bag-icon:hover {
+    color: #38b2aa;
+}
+
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .navbar-center-content-wrapper .men-wrapper .navbar-text {
+    color: #432818; /*change color of Men title*/
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .navbar-center-content-wrapper .men-wrapper .navbar-text:hover {
+    opacity: 50%; 
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .navbar-center-content-wrapper .women-wrapper .navbar-text {
+    color: #432818; /*change color of Women title*/
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .navbar-center-content-wrapper .women-wrapper .navbar-text:hover {
+    opacity: 50%; 
+}
+.checkbox:checked ~ .first-page-content-wrapper .page-color-switch .navbar-container .navbar-center-content-wrapper .navbar-text {
+    color: #432818; /*change color of straight line divider*/
+}
+
+.test-container {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 10px;
+    /* background: linear-gradient(to top, rgba(34, 32, 41, .3), rgba(34, 32, 41, .2)),
+    url(payyy.jpg) center no-repeat;    
+    background-size: cover;
+    background-position: 10% 100%; */
+    background-color: #cbf3f0;
+    border: 2px solid #000;
+    top: 58rem;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 10; /*This keeps the shopping bag on top of everything else*/
+}
+
+
+.button {
+    height: 4.5rem;
+    width: 4.5rem;
+    margin-bottom: .6rem;
+    background: url(bag-shopping-light.svg) center no-repeat;
+    background-position: 50% 50%;
+    background-color: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    transition: all .3s;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.test:checked ~ .test-container .button {
+    background: url(square-xmark-solid.svg) center no-repeat;
+    background-position: 50% 100%;
+    /* background-color: white; */
+    border-radius: 4px;
+    top: 20px;
+    left: 450px;
+    transition: all .5s;
+    height: 3.2rem;
+    width: 3.2rem;
+    background-color: #fff;
+}
+
+
+.test:checked ~ .test-container {
+    height: 75rem;
+    width: 50rem;
+    opacity: 80%;
+    border: 2px solid #fff;
+    border-left: none;
+    transition: all .3s;
+    top: 20rem;
+    background: #eeeeec;
+    background: #000; 
+    opacity: 95%;
+}
+
+.shopping-bag-content-container {
+    width: 80%;
+    height: 90%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-start;
+    visibility: hidden;
+    text-align: center;
+
+}
+
+.test:checked ~ .test-container .shopping-bag-content-container {
+    visibility: visible;
+    background-color: #000;
+    height: 99%;
+    width: 95%;
+}
+
+.shopping-bag-text {
+    font-size: 2.2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 1.1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #fff;
+    letter-spacing: .1rem;
+    color: #fff;
+}
+
+.bag-icon {
+    color: #fff;
+    font-size: 4rem;
+    position: absolute;
+    top: 15px;
+    left: 340px;
+}
+
+.bag-icon:hover {
+    color: #CBF3F0;
+}
+
+.shopping-bag-items {
+    width: 100%;
+    height: 65%;
+    top: 10%;
+    position: sticky;
+    overflow-y: scroll; /*Without this the instagram videos would continue on the next page*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* scroll-snap-type: y mandatory; */
+    background-color: #fff;
+}
+
+.items {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    background-color: #0e0e0f; 
+    width: 95%;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-1 {
+    margin-top: 1rem;
+}
+
+.bag-clothes-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    height: 95%;
+    background-color: none;
+    margin-left: .5rem;
+}
+
+.bag-clothes-description {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    justify-content: space-between;
+}
+
+.clothes-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40%;
+    background-color: none;
+}
+
+.shirt-icon {
+    margin-left: 4rem;
+    margin-right: 1rem;
+    color: #fff;
+    font-size: 2rem;
+}
+
+
+.bag-clothes-name-text {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #fff;
+    align-self: flex-start;
+}
+
+.size-text {
+    font-weight: 900;
+    margin-left: 1rem;
+}
+
+
+.price-text {
+    display: flex;
+    justify-content: space-between;
+    background-color: none;
+    width: 90%;
+    align-self: center;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.price-target {
+    font-size: 2.8rem;
+    margin-top: 1.5rem;
+    letter-spacing: .1rem;
+}
+
+.heart-icon {
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.heart-icon:active {
+    color: red;
+}
+
+.save-4-later:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.bag-clothes-tools {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+    border-top: 1px solid #fff;
+}
+
+.small-icons {
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all .1s;
+}
+
+.small-icons:hover {
+    transform: scale(1.2);
+}
+
+.small-number {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.shopping-images {
+    width: 30%;
+    height: 95%;
+    border-radius: 10px;
+    margin-bottom: 3.8rem;
+    cursor: pointer;
+    scroll-snap-align: center;
+    margin-top: 3.7rem;
+    margin-right: .4rem;
+}
+
+.shopping-bag-info-wrapper {
+    width: 100%;
+    height: 20%;
+    border-top: 3px solid #fff;  
+    background-color: #0e0e0f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.total-wrapper {
+    width: 80%;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.total-text {
+    font-size: 3rem;
+}
+
+.items-text {
+    font-size: 2.8rem;
+}
+
+.divider-line-icon {
+    font-size: 2rem;
+}
+
+.checkout {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(246, 210, 162);
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    border-radius: 25px;
+    transition: all .2s;
+    cursor: pointer;
+    color: #fff;
+}
+
+.checkout:hover {
+    background-color: rgb(247, 218, 179);
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    color: #000;
+}
+
+.checkout:hover::after {
+    content: '';
+    width: 3rem;
+    height: .3rem;
+    background-color: #000;
+    position: absolute;
+    margin-right: -20rem;
+}
+
+.checkout:hover::before {
+    content: '';
+    width: 3rem;
+    height: .3rem;
+    background-color: #000;
+    position: absolute;
+    margin-left: -20rem;
+}
+
+.checkout:active::after {
+    background-color: #fff;
+}
+.checkout:active::before {
+    background-color: #fff;
+}
+
+.checkout:active {
+    background-color: #2f2f32;
+    color: #fff;
+}
+
+.check-out-text {
+    font-size: 3rem;
+    letter-spacing: .1rem;
+}
+
+/* First Page Main Content  */
+
+.first-page-video-container::-webkit-scrollbar { 
+    display: none;  /* Gets rid of scrollbar but you can still scroll*/
+}
+
+
+.first-page-moving-text-container {
+    width: 100%;
+    height: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #060A11;
+    top: 14.4rem;
+    position: sticky;
+    overflow-y: scroll; /*Without this the instagram videos would continue on the next page*/
+    overflow: hidden; /*This disables scrolling*/
+    z-index: 2;
+}
+
+
+.moving-text {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    animation: items 15s infinite;
+}
+
+.moving-text-anchor {
+    text-decoration: none;
+}
+
+@keyframes items {
+    0% {
+        transform: translateY(0rem);
+    }
+    100% {
+        transform: translateY(-20rem);
+    }
+} 
+
+.pause-wrapper {
+    width: 36%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: none;
+    position: absolute;
+    align-self: flex-end;
+    margin: 10 auto;
+}
+
+.pause-play-icons {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.play-icon {
+    position: absolute;
+    margin-left: -.5rem;
+    visibility: hidden;
+}
+
+.restart-button {
+    position: absolute;
+    margin-left: 20rem;
+}
+
+.stop-animation:checked ~ .first-page-moving-text-container .moving-text {
+    animation: none;
+}
+
+.stop-animation:checked ~ .first-page-moving-text-container {
+    overflow-y: scroll;
+    cursor: s-resize;
+}
+
+.stop-animation:checked ~ .first-page-moving-text-container .play-icon {
+    visibility: visible;
+}
+.stop-animation:checked ~ .first-page-moving-text-container .pause-icon {
+    visibility: hidden;
+}
+
+
+/* End of First Page Main Content  */
+
+/* Second Page Main Content */
+.second-container::-webkit-scrollbar { 
+    display: none;  /* Gets rid of scrollbar but you can still scroll*/
+}
+
+.second-page-content-container { /*yaga*/
+    width: 100%;
+    height: 40%;
+    height: 20%;/*yaga*/
+    position: absolute;
+    overflow: hidden; /*IMPORTANT: This prevents the videos from overflowing on the right*/
+    margin-top: 18rem;
+    margin-top: 18rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.second-container {
+    width: 100%;
+    hdeight: 50%;
+    heigdht: 90%;/*yaga*/
+    background-color: blude;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    scroll-snap-type: x mandatory; /*x-axis snap scrolling*/
+    scroll-padding: 0%;
+    overflow-y: hidden; /*This disables scrolling vertically, once enabled wherever in the image or video is facing that's where it will stay*/
+    overflow-x: hidden;
+}
+
+.videos-slide-container::-webkit-scrollbar { 
+    display: none;  /* Gets rid of scrollbar but you can still scroll*/
+}
+
+.videos-slide-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    min-widdth: 100vw; /*test4*/
+    min-hedight: 100vh; /*test4*/
+    /* height: 100%; */
+    background-coldor: #fff;
+    overflow-x: hidden;
+    position: absolute; /*IMPORTANT - use position:none with checked to get rid of this*/
+    z-index: 1; /*test3*/
+    overflow-y: hidden; /*This disables scrolling vertically, once enabled wherever in the image or video is facing that's where it will stay*/
+}
+
+.welcome-text {
+    font-size: 5rem;
+    color: #fff;
+    position: absolute;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    letter-spacing: .3rem;
+    margin: auto 43%;
+    align-self: center;
+}
+
+.video-copy {
+    min-width: 100vw;
+    min-height: 100vh;
+    margin-top: -13rem;
+}
+
+.pause-play-copies {
+    background-color: none;
+    position: absolute;
+    margin: auto 48%;
+    margin-bottom: 2rem;
+    width: 10rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    background-colodr: aqua;
+
+}
+
+.arrows-copy {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    positiodn: absolute; /*enable this to stack icons ontop of eachother*/
+    background-color: none;
+    width: 3rem;
+    height: 6rem;
+}
+
+.copy-next-video:checked ~ .second-page-content-container .second-container .videos-slide-container {
+    position: relative;
+    visibility: hidden;
+    /* visibility: hidden; */
+}
+
+.copy-next-video:checked ~ .second-page-content-container .second-container .video {
+    visibility: visible;
+}
+
+.copy-next-video:checked ~ .second-page-content-container .second-container .clothes-1::before {
+    visibility: visible;
+}
+
+.copy-next-video:checked ~ .second-page-content-container .second-container .clothes-2::before {
+    visibility: visible;
+}
+
+.copy-next-video:checked ~ .second-page-content-container .second-container .clothes-3::after {
+    visibility: visible;
+}
+
+.copy-next-video:checked ~ .second-page-content-container .second-container .clothes-4::before {
+    visibility: visible;
+}
+
+
+.next-video:checked ~ .second-page-content-container .second-container .video {
+    position: absolute;
+}
+
+
+
+
+.video {
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin-top: -9.1rem;
+    scroll-snap-align: start; /*x-axis snap scrolling*/
+    animation: video-move 45s infinite;
+    visibility: hidden; /*test2*/
+    border-left: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+.clothes-1 {
+    background: url(discoverclothes.jpg) center no-repeat;
+    background-size: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.clothes-1::before {
+    content: 'New Collection';
+    font-size: 6rem;
+    text-align: center;
+    color: #fff;
+    width: 40%;
+    height: 3%;
+    background-color: #432818;
+    padding-left: 12rem;
+    padding-right: 12rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    opacity: 80%;
+    position: absolute;
+    margin-bottom: -23rem;
+    z-index: 0;
+    font-weight: 350;
+    visibility: hidden;
+}
+
+.clothes-2 {
+    background: url(clothing2.jpg) center no-repeat;
+    background-size: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    border-right: 2px solid #fff;
+    box-sizing: border-box;
+}
+
+.clothes-4 {
+    background: url(clothing4.jpg) center no-repeat;
+    background-size: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.clothes-4::before {
+    content: 'Long Sleeve Shirts';
+    font-size: 6rem;
+    text-align: center;
+    color: #fff;
+    width: 45%;
+    height: 3%;
+    background-color: #432818;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    opacity: 80%;
+    position: absolute;
+    margin-bottom: -23rem;
+    z-index: 0;
+    font-weight: 350;
+    visibility: hidden; /*test2*/
+}
+
+
+.clothes-2::before {
+    content: 'Jeans';
+    font-size: 6.5rem;
+    text-align: center;
+    color: #fff;
+    width: 20%;
+    height: 3%;
+    background-color: #432818;
+    padding-left: 12rem;
+    padding-right: 12rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    opacity: 80%;
+    position: absolute;
+    margin-bottom: -23rem;
+    z-index: 0;
+    font-weight: 350;
+    visibility: hidden;
+}
+
+.clothes-3 {
+    background: url(clothes3.jpg) center no-repeat;
+    background-size: contain;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border: none; 
+}
+
+
+.clothes-3::before {
+    content: 'X';
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    margin-right: -120rem;
+    margin-bottom: -10rem;
+    border-radius: 50%;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    z-index: 2;
+    visibility: hidden;
+
+}
+
+.clothes-3::after {
+    content: 'Cardigan Sweaters';
+    width: 50rem;
+    height: 3%;
+    background-color: #432818;
+    color: #fff;
+    position: absolute;
+    font-size: 6rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: center;
+    margin-bottom: -23rem;
+    z-index: 1;
+    font-weight: 350;
+    visibility: hidden;
+    opacity: 80%;
+}
+
+/* .yes:checked ~ .second-page-content-container .second-container {
+    animation-direction: reverse;
+
+} */
+
+.arrow-container {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    background-color: none;
+    position: absolute;
+    align-self: flex-end;
+}
+
+.space {
+    display: flex;
+    justify-content: center;
+    width: 0%;
+    height: 90%;
+    margin: auto 50.5%;
+}
+
+.arrows {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    background-color: none;
+    width: 3rem;
+    height: 6rem;
+}
+
+
+.video-play {
+    visibility: hidden;
+    margin-top: -1rem;
+}
+
+.video-pause {
+    margin-top: -1rem;
+}
+
+.double-arrows {
+    margin-right: -120rem;
+    margin-top: -12rem;
+    visibility: hidden;
+}
+
+/* .video-play::after {
+    content: '>>';
+} */
+
+.next-video:checked ~ .second-page-content-container .second-container .video-play {
+    visibility: visible;
+} 
+.next-video:checked ~ .second-page-content-container .second-container .video-pause {
+    visibility: hidden;
+} 
+.next-video:checked ~ .second-page-content-container .second-container .double-arrows {
+    visibility: visible;
+    animation: double-arrows-move 4s cubic-bezier(0,1.09,.41,.98);
+    animation-iteration-count: 2;
+    cursor: auto;
+}
+
+.next-video:checked .double-arrows ~ .second-page-content-container .second-container .video {
+    animation: none;
+}
+
+
+
+.next-video:checked ~ .second-page-content-container .second-container {
+    overflow-x: scroll;
+    cursor: auto;
+}
+
+.next-video:checked ~ .second-page-content-container .second-container .video {
+    animation: none;
+    border: none;
+}
+
+.next-video:checked ~ .second-page-content-container .second-container .clothes-2::before {
+    visibility: visible;
+}
+
+.next-video:checked ~ .second-page-content-container .second-container .clothes-3::before {
+    visibility: visible;
+}
+.next-video:checked ~ .second-page-content-container .second-container .clothes-3::after {
+    visibility: visible;
+}
+
+
+@keyframes video-move {
+    0% {
+        transform: translateY(0rem);
+    }
+    100% {
+        transform: translateX(-300vw);
+    }
+} 
+
+@keyframes double-arrows-move {
+    0% {
+        transform: translateX(-5rem);
+    }
+    100% {
+        transform: translateX(2rem);
+    }
+} 
+
+
+.block-arrows {
+    width: 8%;
+    height: 12%;
+    background-color: none;
+    position: absolute;
+    margin-top: -35rem;
+    visibility: visible;
+    align-self: center;
+}
+
+.video-text {
+    width: 30%;
+    height: 20%;
+    background-coldor: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    margin: auto 35%; /*This centers the element*/
+    margin-top: 10rem;
+    cursor: pointer;
+}
+
+.discover-text {
+    font-size: 7rem;
+    color: #fff;
+}
+
+.discover-text-anchor {
+    text-decoration: none;
+}
+
+/*First Page Products Content*/
+.first-page-products-container {
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+/* .discover-products-wrapper::-webkit-scrollbar { 
+    display: none;
+} */
+.discover-products-wrapper {
+    width: 80%;
+    height: 41%;
+    background-color: #fff;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
+.discover-products-images {
+    width: 24%;
+    height: 90%;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    /* flex-wrap: nowrap; */
+    margin-right: 0rem;
+    margin-right: 8rem;
+    margin-top: 2.5rem;
+    scroll-snap-align: start;
+}
+
+.discover-images {
+    width: 100%;
+    height: 100%;
+    min-width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    position: relative;
+    background-color: none;
+    /* flex-wrap: nowrap; */
+    border: 2px solid goldenrod;
+    box-sizing: border-box;
+}
+
+.discover-products-anchor {
+    width: 100%;
+    height: 95%;
+    max-width: 30rem;
+    min-width: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: nowrap; */
+}
+
+.checkbox:checked ~ .first-page-products-container {
+    background-color: #432818;
+}
+.checkbox:checked ~ .first-page-products-container .discover-products-wrapper {
+    background-color: #432818;
+}
+
+
+.jeans-products-wrapper {
+    width: 80%;
+    height: 41%;
+    background-color: none;
+    opacity: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}
+
+.jeans-products-images {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    position: relative;
+    background-color: none;
+}
+
+.jeans-products-images:hover .jeans-1-text {
+    opacity: 70%;
+
+}
+.jeans-products-images:hover .jeans-2-text {
+    opacity: 70%;
+}
+.jeans-products-images:hover .jeans-3-text {
+    opacity: 70%;
+}
+
+.jeans-images {
+    width: 100%;
+    height: 95%;
+    max-width: 30rem;
+    background-color: none;
+}
+.jeans-images-anchor {
+    width: 100%;
+    height: 95%;
+    max-width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jeans-text-anchor {
+    position: absolute;
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.jeans-1-text {
+    padding-top: 13.5rem;
+    padding-bottom: 13.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+.jeans-2-text {
+    padding-top: 15rem;
+    padding-bottom: 15rem;
+    padding-left: 8.9rem;
+    padding-right: 8.9rem;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+.jeans-3-text {
+    padding-top: 13.5rem;
+    padding-bottom: 13.5rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+
+
+.discover-products-text-anchor {
+    position: absolute;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.discover-1-text {
+    padding-top: 13.5rem;
+    padding-bottom: 13.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+
+.discover-products-images:hover .discover-1-text {
+    opacity: 70%;
+}
+
+.discover-2-text {
+    padding-top: 13.6rem;
+    padding-bottom: 13.6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+
+.discover-products-images:hover .discover-2-text {
+    opacity: 70%;
+}
+
+.discover-3-text {
+    padding-top: 13.6rem;
+    padding-bottom: 13.6rem;
+    padding-left: 5.7rem;
+    padding-right: 5.7rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+
+.discover-products-images:hover .discover-3-text {
+    opacity: 70%;
+}
+
+.discover-4-text {
+    padding-top: 13.7rem;
+    padding-bottom: 13.7rem;
+    padding-left: 9.7rem;
+    padding-right: 9.7rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+
+.discover-products-images:hover .discover-4-text {
+    opacity: 70%;
+}
+
+.discover-5-text {
+    padding-top: 11.4rem;
+    padding-bottom: 11.4rem;
+    padding-left: 7.2rem;
+    padding-right: 7.2rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+    line-height: 3.5rem;
+}
+
+.discover-products-images:hover .discover-5-text {
+    opacity: 70%;
+}
+
+.discover-6-text {
+    padding-top: 11.3rem;
+    padding-bottom: 11.3rem;
+    padding-left: 7.2rem;
+    padding-right: 7.2rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+    line-height: 3.5rem;
+}
+
+.discover-products-images:hover .discover-6-text {
+    opacity: 70%;
+}
+
+.discover-7-text {
+    padding-top: 13.7rem;
+    padding-bottom: 13.7rem;
+    padding-left: 9.7rem;
+    padding-right: 9.7rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+}
+
+.discover-products-images:hover .discover-7-text {
+    opacity: 70%;
+}
+
+.discover-8-text {
+    padding-top: 9.5rem;
+    padding-bottom: 9.5rem;
+    padding-left: 8.3rem;
+    padding-right: 8.3rem;
+    box-sizing: border-box;
+    background-color: #000;
+    transition: all .3s ease-in-out;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0%;
+    line-height: 3.5rem;
+}
+
+.discover-products-images:hover .discover-8-text {
+    opacity: 70%;
+}
+
+
+
+
+.next-video:checked ~ .first-page-products-container .discover-products-wrapper {
+    visibility: hidden;
+}
+
+
+
+
+/*End of Jeans Content*/
+
+
+/* Second Page Main Content */
+
+/* End of Second Page Main Content */
+
+/* Responsive */
+@media (max-width: 3000px) {
+    .men-wrapper {
+        margin-left: 38rem;
+    }
+    .video {
+        min-height: 200vh;
+    }
+
+    .welcome-text {
+        margin: auto 43%;
+
+    }
+}
+@media (max-width: 2500px) {
+    .men-wrapper {
+        margin-left: 35rem;
+    }
+}
+@media (max-width: 2200px) {
+    .men-wrapper {
+        margin-left: 30rem;
+    }
+}
+@media (max-width: 1950px) {
+    .men-wrapper {
+        margin-left: 28rem;
+    }
+}
+@media (max-width: 1900px) {
+    .men-wrapper {
+        margin-left: 25rem;
+    }
+}
+@media (max-width: 1850px) {
+    .men-wrapper {
+        margin-left: 22rem;
+    }
+}
+@media (max-width: 1680px) {
+    .men-wrapper {
+        margin-left: 17rem;
+    }
+}
+@media (max-width: 1520px) {
+    .men-wrapper {
+        margin-left: 15rem;
+    }
+}
+@media (max-width: 1390px) {
+    .men-wrapper {
+        margin-left: 13rem;
+    }
+}
+@media (max-width: 1300px) {
+    .men-wrapper {
+        margin-left: 12rem;
+    }
+}
+@media (max-width: 1250px) {
+    .men-wrapper {
+        margin-left: 11rem;
+    }
+}
+@media (max-width: 1200px) {
+    .men-wrapper {
+        margin-left: 10rem;
+    }
+}
+
+@media (max-width: 1150px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 8rem;
+    }
+}
+
+@media (max-width: 1120px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 7rem;
+    }
+}
+@media (max-width: 1090px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 6rem;
+    }
+}
+@media (max-width: 1060px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 5rem;
+    }
+}
+@media (max-width: 1030px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 4rem;
+    }
+}
+@media (max-width: 1000px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 3rem;
+    }
+}
+@media (max-width: 990px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 2rem;
+    }
+}
+@media (max-width: 970px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 1rem;
+    }
+}
+@media (max-width: 960px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: 0rem;
+    }
+}
+@media (max-width: 950px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -2rem;
+    }
+}
+@media (max-width: 930px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -4rem;
+    }
+}
+@media (max-width: 900px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -6rem;
+    }
+}
+@media (max-width: 870px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -8rem;
+    }
+}
+@media (max-width: 840px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -10rem;
+    }
+}
+@media (max-width: 810px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -12rem;
+    }
+}
+@media (max-width: 800px) { /*1400px OR less*/
+    .men-wrapper {
+        margin-left: -14rem;
+    }
+}
+
+/* End of Responsive */

@@ -1,0 +1,467 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik', sans-serif;
+    overflow-x: hidden; /*This prevents the entire page from overflowing*/
+    /* overflow: hidden; */
+}
+
+/* Colors 
+
+#### Text
+
+- Pale Violet (sub-heading at the top of the app UI): hsl(276, 100%, 81%)
+- Moderate Violet (chat on the left): hsl(276, 55%, 52%)
+- Desaturated Dark Violet (chat on the right): hsl(271, 15%, 43%)
+- Grayish Blue (placeholder text): hsl(206, 6%, 79%)
+- Very Dark Desaturated Violet (main heading): hsl(271, 36%, 24%)
+- Dark Grayish Violet (paragraph): hsl(270, 7%, 64%)
+
+#### Gradients
+
+These two colors are the vibrant background colors you see throughout the design and are applied as a linear gradient:
+
+- Light Magenta: hsl(293, 100%, 63%)
+- Light Violet: hsl(264, 100%, 61%)
+
+### Secondary
+
+- White: hsl(0, 0%, 100%)
+- Light Grayish Violet (app background): #F9F4FA;
+- Very Dark Desaturated Violet (submit button background): hsl(271, 36%, 24%)
+- Very Light Magenta (radio button outline): hsl(289, 100%, 72%)
+
+End of Colors */
+
+.page-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+}
+
+.background-container {
+    background-color: #FAFAFA;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.purple-shape-wrapper {
+    width: 45rem;
+    height: 83vh;
+    background: linear-gradient(180deg, hsla(293, 100%, 63%, 1) -50%, hsla(264, 100%, 61%, 1) 89%);;
+    border-bottom-left-radius: 190px;
+    border-bottom-right-radius: 210px;
+    border-end-end-radius: 240px;
+}
+.light-pink-shape-wrapper {
+    width: 30rem;
+    height: 85vh;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 0%, hsla(290, 37%, 97%, 1) 0%);    align-self: flex-end;
+    border-top-left-radius: 500px;
+}
+
+.content-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: none;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper {
+    width: 60rem;
+    height: 75%;
+    background-color: none;
+    margin-right: -10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iphone-wrapper {
+    width: 42%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    margin-left: -4rem;
+    border-radius: 30px;
+    position: relative;
+}
+
+.iphone-background-color {
+    width: 94%;
+    height: 96%;
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, 1) 0%, hsla(290, 37%, 97%, 1) 0%); 
+    border-radius: 30px; 
+    position: absolute;  
+}
+
+.iphone-sections-wrapper {
+    width: 94%;
+    height: 96%;
+    background-color: none;
+    position: absolute;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.iphone-section-one {
+    width: 100%;
+    height: 14%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(240deg, hsla(293, 100%, 63%, 1) 0%, hsla(264, 100%, 61%, 1) 89%);;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.notch {
+    width: 50%;
+    height: 37%;
+    /* border-radius: 50px; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #fff;
+    align-self: center;
+    margin-top: -1rem;
+}
+
+.notch-info {
+    width: 90%;
+    height: 50%;
+    background-color: none;
+    margin-top: 1rem;
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-side-info-wrapper {
+    height: 100%;
+    width: 65%;
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.fa-chevron-left {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.avatar-image {
+    width: 25%;
+    height: 90%;
+    border-radius: 50%;
+    background-color: #000;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+}
+
+.iphone-header-text-wrapper {
+    margin-right: -1rem;
+}
+
+.iphone-header-text {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.iphone-subheading-text {
+    margin: 0;
+    color: hsl(276, 100%, 81%);
+    margin-top: .5rem;
+}
+
+.right-side-dots-wrapper {
+    height: 60%;
+    width: 10%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dot-1 {
+    width: 18%;
+    height: 15%;
+    background-color: hsl(276, 100%, 81%);
+}
+.dot-2 {
+    width: 18%;
+    height: 15%;
+    background-color: hsl(276, 100%, 81%);
+}
+.dot-3 {
+    width: 18%;
+    height: 15%;
+    background-color: hsl(276, 100%, 81%);
+}
+
+
+.iphone-section-two {
+    width: 100%;
+    height: 21%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.chat-1 {
+    width: 60%;
+    height: 40%;
+    margin-left: 1rem;
+    border-radius: 12px;
+    background-color: #EDE5F4;
+}
+.chat-2 {
+    width: 64%;
+    height: 40%;
+    margin-left: 1rem;
+    border-radius: 12px;
+    background-color: #EDE5F4;
+}
+
+.chat-1-text {
+    color: hsl(276, 55%, 52%);
+    margin-left: 1rem;
+}
+
+.chat-2-text {
+    color: hsl(276, 55%, 52%);
+    margin-left: 1rem;
+    padding-right: 8px;
+}
+
+
+
+.iphone-section-three {
+    width: 100%;
+    height: 26.5%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.small-images-wrapper {
+    width: 60%;
+    height: 38%;
+    background-color: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: flex-end;
+    margin-right: .5rem;
+}
+
+.small-images {
+    width: 27%;
+    height: 70%;
+    border-radius: 10px;
+}
+
+.iphone-section-three-chat-wrapper {
+    width: 58%;
+    height: 58%;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: none;
+    margin-right: 2.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-three-chat-3 {
+    width: 100%;
+    height: 55%;
+    background-color: #fff;
+    border-radius: 12px;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.section-three-chat-4 {
+    width: 65%;
+    height: 40%;
+    background-color: #fff;
+    border-radius: 12px;
+    align-self: flex-end;
+    margin-right: -1.5rem;
+    padding-left: .5rem;
+}
+
+.iphone-section-four {
+    width: 100%;
+    height: 28%;
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section-four-chat-5 {
+    width: 58%;
+    height: 35%;
+    background-color: #EDE5F4;
+    border-radius: 12px;
+    padding-right: 8px;
+    padding-left: 8px;
+    margin-left: 1rem;
+    margin-bottom: -.8rem;
+}
+
+.chat-5-text {
+    color: hsl(276, 55%, 52%);
+}
+
+.section-four-chat-6 {
+    width: 76%;
+    height: 28%;
+    background: linear-gradient(-240deg, hsla(293, 100%, 63%, 1) 40%, hsla(264, 100%, 61%, 1) 90%);;
+    border-radius: 12px;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: -.8rem;
+}
+
+.chat-6-circle {
+    width: 7%;
+    height: 30%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.chat-6-text {
+    margin-left: -2rem;
+    color: #fff;
+}
+
+.chat-6-money {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.section-four-chat-7 {
+    width: 76%;
+    height: 28%;
+    background: linear-gradient(-240deg, hsla(293, 100%, 63%, 1) 40%, hsla(264, 100%, 61%, 1) 90%);;
+    border-radius: 12px;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.chat-7-circle {
+    width: 7%;
+    height: 30%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    margin-left: -.7rem;
+}
+
+.chat-7-text {
+    margin-left: -3.5rem;
+    color: #fff;
+}
+
+.chat-7-money {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: -1rem;
+}
+
+
+.iphone-section-five {
+    width: 100%;
+    height: 10%;
+    background-color: none;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.section-5-wrapper {
+    width: 91%;
+    height: 70%;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-bottom: .5rem;
+}
+
+.input-wrapper {
+    width: 90%;
+    height: 100%;
+    background-color: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 4%;
+}
+
+.input {
+    outline: none;
+    border: none;
+    padding-left: 1.5rem;
+    opacity: 50%;
+}
+
+.input-chevron {
+    background-color: #422656;
+    padding: .8rem;
+    color: #fff;
+    font-size: 1.7rem;
+    border-radius: 50%;
+    font-weight: 900;
+    margin-right: -.5rem;
+}
+
+
+
+.text-wrapper {
+    width: 68%;
+    height: 30%;
+    margin-right: -10rem;
+}
+
+.title-text {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin: 0;
+    color: hsl(271, 36%, 24%);
+}
+
+.paragraph-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.7rem;
+    color: hsl(270, 7%, 64%);
+}

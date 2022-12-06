@@ -1,0 +1,1158 @@
+html {
+    font-size: 62.5%;
+    /* 10/16 = 0.625 * 100 = 62.5
+    16 is for the default 16px that 1 rem is. After doing this, 1 rem will now be 10px.*/
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navbar */
+/* Sidebar */
+.sidebar {
+    width: 8rem;
+    height: 100%;
+    background-color: #eee;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    scroll-snap-align: start;
+}
+
+.menu-icon {
+    margin-top: 3rem;
+    cursor: pointer;
+}
+
+.line {
+    height: .2rem;
+    width: 2.5rem;
+    background-color: #222;
+    margin-bottom: .6rem;
+}
+
+.line-1, .line-3 {
+    width: 1.8rem;
+    transition: all .4s;
+}
+
+.menu-icon:hover .line {
+    width: 2.5rem;
+}
+
+.social-icons-list {
+    list-style: none;
+    padding: 0; /*without this, the icons would be moved to the right side*/
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.social-link {
+    font-size: 2rem;
+    color: #777;
+    transition: color .3s;
+}
+
+.social-link:hover {
+    color: #deaa86;
+}
+
+.year {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #555;
+}
+/* End of Sidebar */
+
+/* navigation */
+.navigation {
+    position: fixed; /*This removes the space that was created above the sidebar*/
+    left: -32rem;
+    width: 37rem;
+    height: 100%;
+    background: linear-gradient(to top, rgba(34, 32, 41, 1), rgba(34, 32, 41, .8)),
+     url(../Downloads/hotel1.jpg) center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    transition: left .8s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigation-heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    color: #d8e2dc;
+    text-align: center; /*when width is changed to 30rem below, heading is no longer centered
+    so use this to center it again */
+}
+
+.navigation-search {
+    position: relative; /*This is done so that the button element can be moved relative
+    to its parent instead of the body*/
+}
+
+.navigation-search-input {
+    width: 30rem;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, .3);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.6rem;
+    color: #d8e2dc;
+    letter-spacing: .1rem;
+    outline: none; /*This gets rid of the blue outline that appears when you click in
+    the input search bar*/
+    border: .1rem solid #555;
+    border-radius: 10rem;
+    transition: background-color .3s;
+}
+
+.navigation-search-input:focus { /*focus is used for inputs instead of hover*/
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.navigation-search-btn {
+    border: none;
+    background-color: transparent;
+    color: #deaa86;
+    font-size: 1.7rem;
+    position: absolute; /*This is done so that it can be placed inside the input box*/
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.navigation-search-btn:focus {
+    outline: none;
+}
+
+.navigation-list {
+    list-style: none;
+    padding: 0; /*This is done so that the list items are perfectly centered because list items
+    have default padding*/
+    height: 28rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation-item {
+    position: relative;
+}
+
+.navigation-link {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color .5s;
+}
+
+.navigation-link::before {
+    content: "";
+    width: 0rem;
+    height: .1rem;
+    background-color: #deaa86;
+    position: absolute;
+    top: 1rem;
+    left: -4rem;
+    transition: width .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigation-link::after {
+    content: "";
+    width: 0rem;
+    height: .1rem;
+    background-color: #deaa86;
+    position: absolute;
+    top: 1rem;
+    right: -4rem;
+    transition: width .5s cubic-bezier(1, 0, 0, 1);
+}
+
+.navigation-link:hover {
+    color: #deaa86;
+}
+
+.navigation-link:hover::before, 
+.navigation-link:hover::after {
+    width: 3rem;
+} 
+
+.copyright {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox:checked ~ .navigation {
+    left: 8rem; /*transition: left .8s cubic-bezier(1, 0, 0, 1); added to .navigation*/
+}
+
+/*these 3 below are used to make the clickable X*/
+.checkbox:checked ~ .sidebar .line-1 {
+    transform: rotate(-405deg) translate(-5px, 6px);
+    width: 2.5rem;
+}
+
+.checkbox:checked ~ .sidebar .line-2 {
+    opacity: 0;
+}
+
+.checkbox:checked ~ .sidebar .line-3 {
+    transform: rotate(405deg) translate(-5px, -6px);
+    width: 2.5rem;
+}
+
+.navigation {
+    animation: anim 5s;
+}
+
+@keyframess anim { /*This animation makes the heading appear when the page is loaded*/
+    0% {
+        left: -32rem;
+    }
+
+    25% {
+        left: 8rem;
+    }
+
+    50% {
+        left: 8rem;
+    }
+    100% {
+        left: -32rem;
+    }
+}
+/* end of navigation */
+/* End of Navbar */
+
+/* Header */
+.header {
+    /* margin-left: 8rem; */
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,.6), rgba(0,0,0,.5)), url(blackcubes.jpg) center no-repeat;
+    background-size: cover;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    /* background-color: #777; */
+}
+
+
+.me-button {
+    background: none;
+    color: #ffa260;
+    border: 2px solid;
+    padding: 1.2rem 2.2rem;
+    font-size: 1.6rem;
+    transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    box-sizing: border-box;
+}
+
+.me-button:hover {
+    border-color: #f1ff5c;
+    color: white;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transform: translateY(-0.25em);
+    cursor: pointer;
+} 
+
+.banner-name {
+    font-family: 'Josefin Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 6rem;
+    font-weight: 400;
+    margin-bottom: 0; 
+    background-color: #f1ff5c;
+    padding: 1rem 0;
+    color: #000;
+    cursor: pointer;
+    box-sizing: border-box;
+    box-shadow: 0 0.5em 0.5em -0.4em #f1ff5c;
+    transition: all .25s;
+}
+
+.banner-name:hover {
+    text-decoration: underline;
+    background-color: aqua;
+    color: #000;
+    box-shadow: 0 0.5em 0.5em -0.4em aqua;
+    transform: translateY(-0.15em);
+}
+
+.me {
+    margin-top: 4rem;
+}
+
+.button-move {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem;
+}
+
+.banner {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    /* margin-top: 30rem; */
+    margin: auto 0;
+    margin-bottom: 50vh;
+    /* flex-direction: column; */
+}
+
+/* End of Header */
+
+/* About Me */
+.copy-projects-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /*this aligns the text in the center horizontally*/
+    height: 100vh;
+    width: 100vw;
+    /* background-color: #fff; */
+    /* background: linear-gradient(to bottom, rgb(108, 7, 7, 0.9), rgba(0,0,0,0.9)); */
+    background: linear-gradient(360deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 100%);
+    position: relative; /*this allows for the text to placed inside the red div*/
+    margin-top: 1rem;
+    scroll-snap-align: start;
+}
+
+.copy-projects-section {
+    position: absolute; /*this allows for the text to placed inside the red div*/
+    width: 100%;
+    height: 20%;
+    /* background: linear-gradient(to bottom, rgb(108, 7, 7, 0.9), rgba(0,0,0,0.9)); */
+}
+
+.copy-projects-text {
+    position: absolute; /*this allows for the text to placed inside the red div*/
+    color: #000;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 2.5rem;
+    width: 70%;
+    /* height: 23rem; */
+    line-height: 5rem;
+    border:2px solid #deaa86;
+    color: #fff;
+    padding: 1rem;
+    margin-left: 10rem;
+    margin-top: -10rem;
+    text-align: center;
+}
+
+.projects-text:hover {
+    text-decoration: underline;
+}
+
+.copy-projects-images-wrapper {
+    background: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copy-project-image {
+    width: 25rem;
+    border: .2rem solid #b85d1c;
+    /* border-right: 2.5px solid black;
+    border-left: 2.5px solid black; */
+    cursor: pointer;
+}
+
+.copy-projects-images {
+    /* margin-left: 10rem; */
+    margin-bottom: -17rem;
+}
+
+.copy-about-me-header {
+    font-size: 5rem;
+    font-weight: 300;
+    letter-spacing: .2rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgb(68, 57, 57);
+    text-align: center;
+    width: 42.3rem;
+    box-shadow: 0 0.6em 0.5em -0.4em #2e3108;
+    padding-top: 1.8rem;
+    padding-bottom: 1.8rem;
+    transition: all 1s;
+    margin-top: 9rem;
+    margin-left: 10rem;
+
+}
+
+.copy-about-me-header:hover {
+    text-decoration: underline;
+    background-color: #fff;
+    color: rgb(68, 57, 57);;
+    transform: translateY(-0.15em);
+}
+
+.copy-projects-images {
+    flex: 1 1;
+    position: relative; /*used to place images on top of each other*/
+    cursor: pointer;
+    transition: all 2s;
+    /* height: 40%;
+    width: 100%;
+    background-color: #ccc; */
+}
+
+.copy-projects-images .copy-project-image-1 {
+    transition: all 1s;
+    backface-visibility: hidden;
+}
+.copy-projects-images .copy-project-image-2 {
+    transition: all 1s;
+    backface-visibility: hidden;
+}
+.copy-projects-images .copy-project-image-3 {
+    transition: all 1s;
+    backface-visibility: hidden;
+}
+.copy-projects-images .copy-project-image-4 {
+    transition: all 1s;
+    backface-visibility: hidden;
+}
+
+.copy-projects-images:hover .copy-project-image-1 {
+    transform: translate(-120%, -75%) scale(1.1);
+}
+.copy-projects-images:hover .copy-project-image-2 {
+    transform: translate(30%, -75%) scale(1.1);
+}
+.copy-projects-images:hover .copy-project-image-3 {
+    transform: translate(155%, -75%) scale(1.1);
+}
+.copy-projects-images:hover .copy-project-image-4 {
+    transform: translate(-245%, -75%) scale(1.1);
+}
+
+.copy-project-image {
+    width: 22rem;
+    position: absolute;/*used to place images on top of each other*/
+    top: 50%; /*used to place images on top of each other*/
+    left: 50%; /*used to place images on top of each other*/
+    box-shadow: 0 3rem 6rem rgba(0,0,0,.4);
+    border-radius: .4rem;
+    border: .2rem solid #b85d1c;
+    backface-visibility: hidden;
+    margin-left: 3rem;
+}
+
+.copy-project-image-1 {
+    transform: translate(-20%, -90%); /*used to place images on top of each other*/
+}
+
+.copy-project-image-2 {
+    transform: translate(-70%, -70%); /*used to place images on top of each other*/
+}
+
+.copy-project-image-3 {
+    transform: translate(-50%, -50%); /*used to place images on top of each other*/
+}
+
+.copy-project-image-4 {
+    transform: translate(-30%, -30%); /*used to place images on top of each other*/
+}
+
+/* End of About Me */
+
+/* Projects */
+.projects-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /*this aligns the text in the center horizontally*/
+    height: 100vh;
+    width: 100vw;
+    /* background-color: #fff; */
+    /* background: linear-gradient(to bottom, rgb(108, 7, 7, 0.9), rgba(0,0,0,0.9)); */
+    background: linear-gradient(to bottom, rgb(108, 7, 7, 0.9), rgba(0,0,0,0.9));
+    position: relative; /*this allows for the text to placed inside the red div*/
+    margin-top: 1rem;
+    scroll-snap-align: start;
+}
+
+.projects-section {
+    position: absolute; /*this allows for the text to placed inside the red div*/
+    width: 100%;
+    height: 20%;
+    /* background: linear-gradient(to bottom, rgb(108, 7, 7, 0.9), rgba(0,0,0,0.9)); */
+    background-color: #fff;
+}
+
+.projects-text {
+    position: absolute; /*this allows for the text to placed inside the red div*/
+    color: #000;
+    font-size: 6rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.projects-text:hover {
+    text-decoration: underline;
+}
+
+.projects-images-wrapper {
+    background: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-image {
+    width: 40rem;
+    border: 2.5px solid #fff;
+    /* border-right: 2.5px solid black;
+    border-left: 2.5px solid black; */
+    cursor: pointer;
+}
+
+.projects-images {
+    margin-left: 10rem;
+}
+
+.project-image-1 {
+    margin-top: 4rem;
+    margin-right: 4rem;
+    transition: all 1s;
+}
+.project-image-2 {
+    transition: all 1s;
+}
+.project-image-3 {
+    margin-bottom: 4rem;
+    margin-right: 4rem;
+    transition: all 1s;
+}
+.project-image-4 {
+    margin-bottom: 4rem;
+    transition: all 1s;
+}
+
+.projects-images:hover .project-image-1 {
+    transform: translate(-30%, -2%) scale(1.2);
+}
+.projects-images:hover .project-image-2 {
+    transform: translate(26%, -2%) scale(1.2);
+}
+.projects-images:hover .project-image-3 {
+    transform: translate(-30%, 2%) scale(1.2);
+}
+.projects-images:hover .project-image-4 {
+    transform: translate(25%, 2%) scale(1.2);
+}
+/* End of Projects */
+
+/* Responsive */
+@media (max-width: 1300px) {
+    .copy-project-image {
+        width: 22rem;
+    }
+    .copy-projects-images:hover .copy-project-image-1 {
+        transform: translate(-100%, -75%) scale(1);
+    }
+    .copy-projects-images:hover .copy-project-image-2 {
+        transform: translate(10%, -75%) scale(1);
+    }
+    .copy-projects-images:hover .copy-project-image-3 {
+        transform: translate(120%, -75%) scale(1);
+    }
+    .copy-projects-images:hover .copy-project-image-4 {
+        transform: translate(-210%, -75%) scale(1);
+    }
+    
+    .copy-project-image-1 {
+        transform: translate(-20%, -90%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-2 {
+        transform: translate(-70%, -70%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-3 {
+        transform: translate(-50%, -50%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-4 {
+        transform: translate(-30%, -30%); /*used to place images on top of each other*/
+    }
+
+    .copy-projects-text {
+        font-size: 2rem;
+    }
+    .copy-about-me-header {
+        font-size: 4rem;
+        letter-spacing: .2rem;
+        width: 40rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    .projects-text {
+        font-size: 5rem;
+    }
+    .project-image {
+        width: 37rem;
+    }
+    
+    .projects-images {
+        margin-left: 10rem;
+    }
+    
+    .project-image-1 {
+        margin-top: 6rem;
+        margin-right: 4rem;
+    }
+    .project-image-2 {
+        transition: all 1s;
+    }
+    .project-image-3 {
+        margin-bottom: 6rem;
+        margin-right: 4rem;
+    }
+    .project-image-4 {
+        margin-bottom: 6rem;
+    }
+    
+    .projects-images:hover .project-image-1 {
+        transform: translate(-3%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-2 {
+        transform: translate(10%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-3 {
+        transform: translate(-3%, 2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-4 {
+        transform: translate(10%, 2%) scale(1.1);
+    }
+
+    .navigation {
+        width: 32rem;
+    }
+
+    .navigation-search-input {
+        width: 20rem;
+        padding: 1rem 5rem;
+        font-size: 1.4rem;
+    }
+
+    .navigation-heading {
+        font-size: 3rem;
+    }
+
+    .banner-name {
+        margin-left: 10rem;
+    }
+}
+
+@media (max-width: 1100px) {
+    .copy-project-image {
+        width: 20rem;
+    }
+    .copy-projects-images:hover .copy-project-image-1 {
+        transform: translate(-93%, -75%) scale(.9);
+    }
+    .copy-projects-images:hover .copy-project-image-2 {
+        transform: translate(8%, -75%) scale(.9);
+    }
+    .copy-projects-images:hover .copy-project-image-3 {
+        transform: translate(105%, -75%) scale(.9);
+    }
+    .copy-projects-images:hover .copy-project-image-4 {
+        transform: translate(-190%, -75%) scale(.9);
+    }
+    
+    .copy-project-image-1 {
+        transform: translate(-20%, -90%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-2 {
+        transform: translate(-70%, -70%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-3 {
+        transform: translate(-50%, -50%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-4 {
+        transform: translate(-30%, -30%); /*used to place images on top of each other*/
+    }
+
+    .copy-projects-text {
+        font-size: 1.8rem;
+    }
+    .copy-about-me-header {
+        font-size: 3.5rem;
+        letter-spacing: .2rem;
+        width: 38rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    .projects-text {
+        font-size: 4.5rem;
+    }
+    .project-image {
+        width: 32rem;
+    }
+    
+    .projects-images {
+        margin-left: 10rem;
+    }
+    
+    .project-image-1 {
+        margin-top: 8rem;
+        margin-right: 4rem;
+    }
+    .project-image-2 {
+        transition: all 1s;
+    }
+    .project-image-3 {
+        margin-bottom: 7.5rem;
+        margin-right: 4rem;
+    }
+    .project-image-4 {
+        margin-bottom: 7.5rem;
+    }
+    
+    .projects-images:hover .project-image-1 {
+        transform: translate(-3%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-2 {
+        transform: translate(-1%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-3 {
+        transform: translate(-3%, 2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-4 {
+        transform: translate(-1%, 2%) scale(1.1);
+    }
+
+    .navigation {
+        width: 30rem;
+    }
+
+    .navigation-search-input {
+        width: 20rem;
+        padding: 1rem 4.3rem;
+        font-size: 1.4rem;
+    }
+
+    .navigation-heading {
+        font-size: 2.8rem;
+    }
+
+    .banner-name {
+        font-size: 5rem;
+        padding: 1rem 0;
+    }
+
+    .me-button {
+        padding: 1.1rem 2.1rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .copy-project-image {
+        width: 18rem;
+    }
+    .copy-projects-images:hover .copy-project-image-1 {
+        transform: translate(-87%, -150%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-2 {
+        transform: translate(7%, -150%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-3 {
+        transform: translate(7%, -50%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-4 {
+        transform: translate(-87%, -50%) scale(.8);
+    }
+    
+    .copy-project-image-1 {
+        transform: translate(-20%, -90%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-2 {
+        transform: translate(-70%, -70%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-3 {
+        transform: translate(-50%, -50%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-4 {
+        transform: translate(-30%, -30%); /*used to place images on top of each other*/
+    }
+
+    .copy-projects-text {
+        font-size: 1.6rem;
+        width: 45rem;
+        line-height: 3.5rem;
+    }
+    .copy-about-me-header {
+        font-size: 3rem;
+        letter-spacing: .2rem;
+        width: 33rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    .projects-text {
+        font-size: 4rem;
+    }
+    .project-image {
+        width: 26rem;
+    }
+    
+    .projects-images {
+        margin-left: 8rem;
+    }
+    
+    .project-image-1 {
+        margin-top: 9.5rem;
+        margin-right: 4rem;
+    }
+    .project-image-2 {
+        transition: all 1s;
+    }
+    .project-image-3 {
+        margin-bottom: 8.5rem;
+        margin-right: 4rem;
+    }
+    .project-image-4 {
+        margin-bottom: 8.5rem;
+    }
+    
+    .projects-images:hover .project-image-1 {
+        transform: translate(-1%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-2 {
+        transform: translate(-1%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-3 {
+        transform: translate(-1%, 2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-4 {
+        transform: translate(-1%, 2%) scale(1.1);
+    }
+
+    .navigation {
+        width: 27rem;
+    }
+
+    .navigation-search-input {
+        width: 18rem;
+        padding: 1rem 4rem;
+        font-size: 1.4rem;
+    }
+
+    .navigation-heading {
+        font-size: 2.6rem;
+    }
+
+    .banner-name {
+        font-size: 4.5rem;
+        padding: 1rem 0;
+    }
+
+    .me-button {
+        padding: 1rem 2rem;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .copy-project-image {
+        width: 18rem;
+        margin-top: -5rem;
+    }
+    .copy-projects-images:hover .copy-project-image-1 {
+        transform: translate(-87%, -140%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-2 {
+        transform: translate(7%, -140%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-3 {
+        transform: translate(7%, -30%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-4 {
+        transform: translate(-87%, -30%) scale(.8);
+    }
+    
+    .copy-project-image-1 {
+        transform: translate(-20%, -90%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-2 {
+        transform: translate(-70%, -70%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-3 {
+        transform: translate(-50%, -50%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-4 {
+        transform: translate(-30%, -30%); /*used to place images on top of each other*/
+    }
+
+    .copy-projects-text {
+        font-size: 1.3rem;
+        width: 35rem;
+        line-height: 3rem;
+        margin-top: -13rem;
+    }
+    .copy-about-me-header {
+        font-size: 3rem;
+        letter-spacing: .2rem;
+        width: 33rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+
+    .projects-text {
+        font-size: 3rem;
+        margin-left: 9rem;
+    }
+    .project-image {
+        width: 18rem;
+        border: .5px solid #fff;
+    }
+    
+    .projects-images {
+        margin-left: 8rem;
+    }
+    
+    .project-image-1 {
+        margin-top: 12rem;
+        margin-right: 2rem;
+    }
+    .project-image-2 {
+        transition: all 1s;
+    }
+    .project-image-3 {
+        margin-bottom: 12rem;
+        margin-right: 2rem;
+    }
+    .project-image-4 {
+        margin-bottom: 12rem;
+    }
+    
+    .projects-images:hover .project-image-1 {
+        transform: translate(1%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-2 {
+        transform: translate(1%, -2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-3 {
+        transform: translate(1%, 2%) scale(1.1);
+    }
+    .projects-images:hover .project-image-4 {
+        transform: translate(1%, 2%) scale(1.1);
+    }
+
+    .navigation {
+        width: 24rem;
+    }
+
+    .navigation-search-input {
+        width: 14.5rem;
+        padding: .8rem 3.8rem;
+        font-size: 1.4rem;
+    }
+
+    .navigation-heading {
+        font-size: 2.3rem;
+    }
+
+    .banner-name {
+        font-size: 4rem;
+        padding: 1rem 0;
+        margin-left: 9rem;
+    }
+
+    .me-button {
+        padding: .9rem 1.9rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 500px) { /*use this to edit iphone */
+    .copy-project-image {
+        width: 15rem;
+        margin-top: -5rem;
+    }
+    .copy-projects-images:hover .copy-project-image-1 {
+        transform: translate(-90%, -140%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-2 {
+        transform: translate(4%, -140%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-3 {
+        transform: translate(4%, -30%) scale(.8);
+    }
+    .copy-projects-images:hover .copy-project-image-4 {
+        transform: translate(-90%, -30%) scale(.8);
+    }
+    
+    .copy-project-image-1 {
+        transform: translate(-20%, -90%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-2 {
+        transform: translate(-70%, -70%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-3 {
+        transform: translate(-50%, -50%); /*used to place images on top of each other*/
+    }
+    
+    .copy-project-image-4 {
+        transform: translate(-30%, -30%); /*used to place images on top of each other*/
+    }
+
+    .copy-projects-text {
+        font-size: 1.5rem;
+        width: 22rem;
+        height: 25rem;
+        line-height: 2rem;
+        margin-top: -7rem;
+        margin-left: 4rem;
+    }
+    .copy-about-me-header {
+        font-size: 2rem;
+        letter-spacing: .2rem;
+        width: 20rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        margin-right: 2rem;
+    }
+
+
+    .projects-text {
+        font-size: 3.5rem;
+        margin-left: 4.4rem;
+        margin-top: .5rem;
+    }
+    .project-image {
+        width: 14rem;
+        border: .5px solid #fff;
+    }
+    
+    .project-image-1 {
+        margin-top: 4rem;
+        margin-right: 2rem;
+        margin-left: 10rem;
+    }
+    .project-image-2 {
+        transition: all 1s;
+        margin-bottom: -13rem;
+        margin-right: 10rem;
+        margin-left: 10rem;
+    }
+    .project-image-3 {
+        /* margin-bottom: 12rem;
+        margin-right: 2rem; */
+        margin-bottom: 4rem;
+        margin-right: 2rem;
+        margin-left: 10rem;
+    }
+    .project-image-4 {
+        /* margin-bottom: 12rem; */
+        transition: all 1s;
+        margin-bottom: 4rem;
+        margin-right: 10rem;
+        margin-left: 10rem;
+    }
+    
+    .projects-images:hover .project-image-1 {
+        transform: translate(1%, -9%) scale(1.5);
+    }
+    .projects-images:hover .project-image-2 {
+        transform: translate(1%, 19%) scale(1.5);
+    }
+    .projects-images:hover .project-image-3 {
+        transform: translate(1%, -14%) scale(1.5);
+    }
+    .projects-images:hover .project-image-4 {
+        transform: translate(1%, 14%) scale(1.5);
+    }
+
+    .navigation {
+        width: 18rem;
+    }
+
+    .navigation-search-input {
+        width: 8rem;
+        padding: 1.5rem 3.9rem;
+        font-size: 1.2rem;
+    }
+
+    .navigation-heading {
+        font-size: 1.8rem;
+    }
+
+    .banner-name {
+        font-size: 2.7rem;
+        padding: 1.5rem .5rem;
+        margin-left: 9rem;
+        margin-top: -9.5rem;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .me-button {
+        padding: .7rem 1.7rem;
+        font-size: 1.4rem;
+        margin-right: -1.3rem;
+        margin-top: -2.2rem;
+    }
+
+    .navigation-link {
+        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 300;
+        letter-spacing: .1rem;
+    }
+}
+
+/* End of Responsive */
