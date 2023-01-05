@@ -1,0 +1,385 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bai Jamjuree', sans-serif;
+    overflow-x: hidden; 
+}
+
+.contenedor {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+}
+
+/*Pagina Inicial*/
+
+.contenedor-1 {
+    width: 100vw;
+    height: 100vh;
+    background-color: #434343;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-de-fondo-contenedor-1 {
+    width: 100vw;
+    height: 90rem;
+    background: url(newsimage1.jpg) center no-repeat;
+    background-size: cover;
+    background-position: 50% 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.pagina-inicial-logo-contenedor {
+    width: 10rem;
+    max-width: 90%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    margin-bottom: 3rem;
+    border-radius: 50%;
+}
+
+.pagina-inicial-logo {
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.boton {
+    width: 13rem;
+    height: 3rem;
+    background-color: #434343;
+    background-color: #9b2226;
+    /* background: linear-gradient(to right, #f85032, #e73827); 
+    background: linear-gradient(to right, #1d4350, #a43931); 
+    background: linear-gradient(to right, #8e0e00, #1f1c18);  */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border-radius: 15px;
+    box-shadow: 1px 25px 16px -8px rgba(0,0,0,0.71);
+    transition: all .4s;
+}
+
+.boton:hover {
+    width: 14rem;
+}
+
+.boton:active {
+    opacity: 70%;
+}
+
+.texto-boton {
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+}
+
+.pagina-inicial-boton {
+    z-index: 1;
+    margin-top: 3rem;
+}
+
+.pagina-inicial-informacion-contenedor {
+    width: 30rem;
+    max-width: 90%;
+    height: 15rem;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #9b2226;
+    /* border-top: none;
+    border-bottom: none; */
+    box-sizing: border-box;
+}
+
+.pagina-inicial-codigo-cliente-form {
+    margin-right: 2.5rem;
+}
+
+
+.lock-icon {
+    font-size: 2rem;
+    margin-right: .5rem;
+}
+
+.view-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: .7rem;
+    position: absolute;
+    cursor: pointer;
+}
+
+.unview-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: .6rem;
+    position: absolute;
+    visibility: hidden;
+    cursor: pointer;
+
+
+}
+.login-view-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: .7rem;
+    position: absolute;
+    cursor: pointer;
+}
+
+.login-unview-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: .6rem;
+    position: absolute;
+    visibility: hidden;
+    cursor: pointer;
+
+}
+
+.codigo-cliente-input {
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.usuario-input {
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.clave-input {
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+
+.contenedor-2 {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    display: none;
+    background-color: red;
+}
+
+.pagina-login-texto {
+    color: #fff;
+    font-size: 2.5rem;
+}
+/*Fin de la Pagina Inicial*/
+
+
+
+.checkbox:checked ~ .contenedor .contenedor-1 {
+    display: flex;
+}
+
+.checkbox:checked ~ .contenedor .contenedor-2 {
+    display: flex;
+}
+
+.checkbox:checked ~ .contenedor .contenedor-1 .imagen-de-fondo-contenedor-1 .pagina-inicial-boton {
+    display: none;
+}
+
+
+
+
+/*Pagina Login*/
+.imagen-de-fondo-contenedor-2 {
+    position: absolute;
+    width: 100vw;
+    height: 90rem;
+    background: linear-gradient(to top, rgba(34, 32, 41, .6), rgba(34, 32, 41, .1)),
+    url(newsimage2.jpg) center no-repeat;    
+    background-size: cover;
+    background-position: 50% 50%; 
+}
+
+.contenedor-2-contenido {
+    height: 90rem;
+    display: grid;
+
+    grid-template-areas: "firstpagebox2 firstpagebox2"
+                         "firstpagebox1 firstpagebox1";
+}
+
+.segunda-pagina-box-1 {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /*Important - Without this, margin-top would cause the other grid box to change size*/
+
+    z-index: 1;
+    grid-area: firstpagebox2;
+}
+
+.pagina-login-logo-contenedor {
+    width: 30rem;
+    max-width: 90%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff; 
+    position: absolute; /*Important - Without this, margin-top would cause the other grid box to change size*/
+    margin-top: 11rem;
+    border: 2px solid #9b2226;
+    border-top: none;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+.pagina-login-logo {
+    width: 10rem;
+    background: url(hubspot-1.svg) center no-repeat;
+    background-size: contain;
+    background-position: 50% 50%; 
+}
+
+.pagina-login-nombre-texto {
+    position: absolute;
+    margin-top: 33rem;
+    font-size: 2.7rem;
+    letter-spacing: .1rem;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 2px solid #9b2226;
+    border-top: none;
+    border-bottom: none;
+    box-sizing: border-box;
+    color: #000;
+    width: 30rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    font-family: 'Aref Ruqaa Ink', serif;
+}
+
+.segunda-pagina-box-2 {
+    /* background-color: black; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative; /*Important - Without this, margin-top would cause the other grid box to change size*/
+
+    z-index: 0;
+
+    grid-area: firstpagebox1;
+}
+
+.pagina-login-informacion-contenedor {
+     width: 30rem;
+    max-width: 90%;
+    height: 15rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    position: absolute; /*Important - Without this, margin-top would cause the other grid box to change size*/
+    border: 2px solid #9b2226;
+    border-top: none;
+    border-bottom: none;
+    box-sizing: border-box;
+}
+
+.pagina-login-usuario-form {
+    margin-right: 2.5rem;
+
+}
+
+.pagina-login-clave-form {
+    margin-right: 2.5rem;
+
+}
+
+.pagina-login-usuario-form {
+    margin-bottom: 2rem;
+}
+
+.user-icon {
+    font-size: 2rem;
+    margin-right: .5rem;
+}
+
+
+.pagina-login-boton {
+    margin-top: 23rem;
+    z-index: 100;
+    position: absolute;
+}
+
+
+
+/*Fin de la Pagina Login*/
+
+/*Proteccion para codigo de cliente*/
+
+input.codigo-cliente-input {
+    -webkit-text-security: none;
+  }
+
+/*Proteccion para codigo de cliente*/
+
+
+.ver:checked ~ .contenedor .contenedor-1 .imagen-de-fondo-contenedor-1 .pagina-inicial-informacion-contenedor .pagina-inicial-codigo-cliente-form .codigo-cliente-input {
+    -webkit-text-security: disc;
+}
+
+.ver:checked ~ .contenedor .contenedor-1 .imagen-de-fondo-contenedor-1 .pagina-inicial-informacion-contenedor .pagina-inicial-codigo-cliente-form .pagina-inicial-ver .unview-icon {
+    visibility: visible;
+}
+
+.ver:checked ~ .contenedor .contenedor-1 .imagen-de-fondo-contenedor-1 .pagina-inicial-informacion-contenedor .pagina-inicial-codigo-cliente-form .pagina-inicial-ver .view-icon {
+    visibility: hidden;
+}
+
+
+
+.ver2:checked ~ .contenedor .contenedor-2 .imagen-de-fondo-contenedor-2 .contenedor-2-contenido .segunda-pagina-box-2 .pagina-login-informacion-contenedor .pagina-login-clave-form .clave-input{
+    -webkit-text-security: disc;
+}
+
+.ver2:checked ~ .contenedor .contenedor-2 .imagen-de-fondo-contenedor-2 .contenedor-2-contenido .segunda-pagina-box-2 .pagina-login-informacion-contenedor .pagina-login-clave-form .pagina-login-ver .login-unview-icon{
+    visibility: visible;
+}
+
+.ver2:checked ~ .contenedor .contenedor-2 .imagen-de-fondo-contenedor-2 .contenedor-2-contenido .segunda-pagina-box-2 .pagina-login-informacion-contenedor .pagina-login-clave-form .pagina-login-ver .login-view-icon{
+    visibility: hidden;
+}

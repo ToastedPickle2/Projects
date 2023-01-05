@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/0246dfd44d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fenixpagina.css">
+    <title>Fenix Pagina</title>
+</head>
+<body>
+    <input type="checkbox" class="ver2" id="click3" hidden>
+    <input type="checkbox" class="ver" id="click2" hidden>
+    <input type="checkbox" class="checkbox" id="click" hidden>
+    <div class="contenedor">
+        <div class="contenedor-1">
+            <div class="imagen-de-fondo-contenedor-1">
+                <div class="pagina-inicial-logo-contenedor">
+                    <img src="fenixlogo.jpg" alt="imagen del logotipo de fenix" class="pagina-inicial-logo">
+                </div>
+                
+                <div class="pagina-inicial-informacion-contenedor">
+                    <form class="pagina-inicial-codigo-cliente-form">
+                        <i class="fa-sharp fa-solid fa-lock lock-icon"></i>
+
+                        <input type="text" placeholder="Codigo Cliente" class="codigo-cliente-input">
+
+                        <label for="click2" class="pagina-inicial-ver">
+                            <i class="fa-solid fa-eye view-icon"></i>
+                            <i class="fa-solid fa-eye-slash unview-icon"></i>
+                        </label>
+                    </form>
+                </div>
+
+                <label for="click" class="pagina-inicial-boton">
+                    <div class="boton">
+                        <p class="texto-boton">Ingresar</p>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div class="contenedor-2">
+            <div class="imagen-de-fondo-contenedor-2">
+                <div class="contenedor-2-contenido">
+                    <div class="segunda-pagina-box-1">
+                        <div class="pagina-login-logo-contenedor">
+                            <div class="pagina-login-logo"></div>
+                        </div>
+
+                        <h1 class="pagina-login-nombre-texto">Hubspot</h1>
+                    </div>
+
+                    <div class="segunda-pagina-box-2">
+                        <div class="pagina-login-informacion-contenedor">
+                            <form class="pagina-login-usuario-form">
+                                <i class="fa-solid fa-user user-icon"></i>
+                                <input type="text" placeholder="Usuario" class="usuario-input">
+                            </form>
+
+                            <form class="pagina-login-clave-form">
+                                <i class="fa-sharp fa-solid fa-lock lock-icon"></i>
+
+                                <input type="text" placeholder="Clave" class="clave-input">
+
+                                <label for="click3" class="pagina-login-ver">
+                                    <i class="fa-solid fa-eye login-view-icon"></i>
+                                    <i class="fa-solid fa-eye-slash login-unview-icon"></i> 
+                                </label>
+                            </form>
+                        </div>
+
+                        <label for="click" class="pagina-login-boton">
+                            <div class="boton">
+                                <p class="texto-boton">Ingresar</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
